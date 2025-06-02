@@ -1,0 +1,13 @@
+api_keys:
+  skinport: "your_api_key_here"
+  lisskins: "your_api_key_here"
+
+trading:
+  max_spend_per_trade: 10.0  # €
+  profit_margin_min: 0.12    # 12%
+  cooldown_between_trades: 3600  # in seconds
+  platforms_priority: ["skinport", "lisskins"]
+
+scheduler:
+  scan_interval_minutes: 30
+  price_history_days: 90

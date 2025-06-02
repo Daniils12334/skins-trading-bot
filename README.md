@@ -1,3 +1,7 @@
+### API Documentations
+- **Skinport**:[API Docs](https://docs.skinport.com/)
+- **Lis-skins**:[API Docs](https://lis-skins-ru.stoplight.io/docs/lis-skins-ru-public-user-api/285cz7ux1xocn-api-overview)
+### Project Structure
 ```text
 skins_trading_bot/
 │
