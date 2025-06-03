@@ -1,6 +1,6 @@
-api_keys:
-  skinport: "your_api_key_here"
-  lisskins: "your_api_key_here"
+skinport:
+  client_id: "dc907317e57e4481958fbd1f0c40031a"
+  client_secret: "fPzfzlb3IQiB4URM0qnNHbBtuvkO7/ttNR0cyfb+AJNNVbK2fq/TjHxtdvP9PTi/qlfEg3TFyKS3B6ru9UvzUg=="
 
 trading:
   max_spend_per_trade: 10.0  # €
