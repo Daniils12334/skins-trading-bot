@@ -1,8 +1,11 @@
-### API Documentations
-- **Skinport**:[API Docs](https://docs.skinport.com/)
-- **Lis-skins**:[API Docs](https://lis-skins-ru.stoplight.io/docs/lis-skins-ru-public-user-api/285cz7ux1xocn-api-overview)
-- **Skin-Baron**:[API Docs](https://skinbaron.de/misc/apidoc/)
 ### Project Structure
+
+## Project Sections
+
+- [📂 Core (Main Logic)](core/README.md)
+- [📂 Markets (Work with API)](markets/README.md)
+- [📂 Data (Storage Structure)](data/README.md)
+
 ```text
 skins_trading_bot/
 │
@@ -41,8 +44,3 @@ skins_trading_bot/
 
 ```
 
-## Project Sections
-
-- [📂 Core (Main Logic)](core/README.md)
-- [📂 Markets (Work with API)](markets/README.md)
-- [📂 Data (Storage Structure)](data/README.md)
