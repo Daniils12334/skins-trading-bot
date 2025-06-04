@@ -3,15 +3,13 @@ import time
 import os
 import glob
 from datetime import datetime
-import yaml  # Убедитесь что установлен pyyaml (pip install pyyaml)
+import yaml  
 from data.database import SkinportDatabase
 from core.deal_finder import find_best_deals
 import logger
 from core.visualizations import generate_deals_dashboard
-# Получаем абсолютный путь к корню проекта
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Загрузка конфигурации
 CONFIG_PATH = os.path.join(PROJECT_ROOT, 'config.yaml')
 if not os.path.exists(CONFIG_PATH):
     raise FileNotFoundError(f"Config file not found: {CONFIG_PATH}")
@@ -19,7 +17,6 @@ if not os.path.exists(CONFIG_PATH):
 with open(CONFIG_PATH, 'r') as f:
     config = yaml.safe_load(f)
 
-# Конфигурация путей
 JS_DIR = os.path.join(PROJECT_ROOT, "markets")
 DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 ITEMS_DIR = os.path.join(DATA_DIR, "skinport-items")
@@ -28,20 +25,17 @@ OUTPUT_CSV = os.path.join(DATA_DIR, "skinport_market_analysis.csv")
 BEST_DEALS_CSV = os.path.join(DATA_DIR, "best_deals.csv")
 
 def create_directories():
-    """Создает необходимые директории, если они отсутствуют"""
     os.makedirs(ITEMS_DIR, exist_ok=True)
     os.makedirs(HISTORY_DIR, exist_ok=True)
     print(f"📁 Директории созданы:\n- {ITEMS_DIR}\n- {HISTORY_DIR}")
 
 def get_latest_file(directory):
-    """Возвращает последний созданный файл в указанной директории"""
     files = glob.glob(os.path.join(directory, "*.json"))
     if not files:
         return None
     return max(files, key=os.path.getctime)
 
 def run_skinport_js(script_name, timeout=120):
-    """Запускает JS-скрипт с таймаутом"""
     js_path = os.path.join(JS_DIR, script_name)
     
     if not os.path.exists(js_path):
@@ -105,7 +99,6 @@ def run_deal_finder():
         return 0
 
 def run_engine():
-    """Основной цикл выполнения"""
     try:
         print("\n" + "="*50)
         print(f"🚀 Запуск системы мониторинга Skinport")

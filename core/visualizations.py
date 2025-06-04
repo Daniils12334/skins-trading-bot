@@ -1,18 +1,14 @@
 import os
 import csv
 import json
+import glob
 import plotly.graph_objects as go
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
+import numpy as np
 
-def safe_int(value, default=0):
-    try:
-        return int(value)
-    except (ValueError, TypeError):
-        return default
-
-def generate_deals_dashboard(best_deals_csv, items_dir, output_dir):
-    """Генерирует HTML-дашборд с лучшими предложениями и графиками"""
+def generate_deals_dashboard(best_deals_csv, history_dir, output_dir):
+    """Генерирует HTML-дашборд с реальными историческими данными"""
     # Создаем директорию для вывода
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -26,31 +22,55 @@ def generate_deals_dashboard(best_deals_csv, items_dir, output_dir):
     
     if not deals:
         print("Нет предложений для визуализации")
-        return
+        return 0
     
-    # Собираем данные для дашборда
+    # Собираем все исторические данные
+    history_files = glob.glob(os.path.join(history_dir, "*.json"))
+    if not history_files:
+        print("Исторические данные не найдены")
+        return 0
+    
+    # Загружаем последний файл истории
+    latest_history = max(history_files, key=os.path.getctime)
+    with open(latest_history, 'r', encoding='utf-8') as f:
+        history_data = json.load(f)
+    
+    # Создаем дашборд
     dashboard_data = []
     
     for deal in deals:
-        # Ищем JSON файл с детальной информацией о предмете
-        item_data = find_item_data(deal['item'], items_dir)
-        if not item_data:
+        item_name = deal['item']
+        
+        # Ищем историю для этого предмета
+        item_history = next((item for item in history_data if item['market_hash_name'] == item_name), None)
+        if not item_history or not item_history.get('sales'):
             continue
-        # Генерируем имя и путь для графика
-        chart_filename = f"{deal['item'].replace('/', '_').replace(' ', '_')}_chart.html"
+        
+        # Анализируем историю продаж
+        sales = item_history['sales']
+        
+        # Создаем график
+        chart_filename = f"chart_{item_name.replace(' ', '_')[:50]}.html"
         chart_path = output_dir / chart_filename
-        create_price_chart(deal, item_data, chart_path)
-        # Формируем данные для дашборда
+        create_price_chart(deal, sales, chart_path)
+        
+        # Рассчитываем статистику
+        prices = [sale['price'] for sale in sales]
+        volumes = [sale['volume'] for sale in sales]
+        
         dashboard_data.append({
-            'item': deal['item'],
+            'item': item_name,
             'current_price': float(deal['current_price']),
             'reference_min_price': float(deal['reference_min_price']),
             'discount_percent': float(deal['discount_percent']),
             'url': deal['url'],
             'chart': chart_filename,
-            'volume_24h': safe_int(deal.get('volume_24h', 0)),
-            'volume_7d': safe_int(deal.get('volume_7d', 0)),
-            'item_data': item_data
+            'min_price': min(prices) if prices else 0,
+            'max_price': max(prices) if prices else 0,
+            'avg_price': sum(prices) / len(prices) if prices else 0,
+            'total_volume': sum(volumes),
+            'sales_count': len(sales),
+            'last_sale': max(sale['time'] for sale in sales) if sales else "N/A"
         })
     
     # Сортируем по размеру скидки
@@ -61,90 +81,82 @@ def generate_deals_dashboard(best_deals_csv, items_dir, output_dir):
     
     return len(dashboard_data)
 
-def find_item_data(item_name, items_dir):
-    """Находит JSON файл с данными о предмете"""
-    items_dir = Path(items_dir)
-    for json_file in items_dir.glob("*.json"):
-        with open(json_file, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-            for item in data:
-                if item.get('market_hash_name') == item_name:
-                    return item
-    return None
-
-def create_price_chart(deal, item_data, output_path):
-    """Создает интерактивный график ценовой истории"""
-    # Подготовка данных для графика
-    periods = ['24h', '7d', '30d', '90d']
-    min_prices = []
-    avg_prices = []
-    median_prices = []
+def create_price_chart(deal, sales, output_path):
+    """Создает интерактивный график на основе реальных продаж"""
+    if not sales:
+        return
     
-    for period in periods:
-        min_key = f"min_{period}"
-        avg_key = f"avg_{period}"
-        median_key = f"median_{period}"
-
-        min_prices.append(float(item_data[min_key]) if item_data.get(min_key) is not None else None)
-        avg_prices.append(float(item_data[avg_key]) if item_data.get(avg_key) is not None else None)
-        median_prices.append(float(item_data[median_key]) if item_data.get(median_key) is not None else None)
+    # Сортируем продажи по времени
+    sales.sort(key=lambda x: x['time'])
+    
+    # Подготовка данных
+    times = [sale['time'] for sale in sales]
+    prices = [sale['price'] for sale in sales]
+    volumes = [sale['volume'] for sale in sales]
+    
+    # Рассчитываем скользящее среднее
+    window_size = min(7, len(prices))
+    moving_avg = []
+    for i in range(len(prices)):
+        start = max(0, i - window_size + 1)
+        moving_avg.append(sum(prices[start:i+1]) / (i - start + 1))
     
     # Создаем график
     fig = go.Figure()
     
-    # Добавляем данные
+    # Цены продаж
     fig.add_trace(go.Scatter(
-        x=periods, 
-        y=min_prices,
-        mode='lines+markers',
-        name='Минимальная цена',
-        line=dict(color='blue', width=3)
+        x=times, 
+        y=prices,
+        mode='markers',
+        name='Цена продажи',
+        marker=dict(
+            size=8,
+            color=volumes,
+            colorscale='Viridis',
+            showscale=True,
+            colorbar=dict(title='Объем')
+        )
     ))
     
+    # Скользящее среднее
     fig.add_trace(go.Scatter(
-        x=periods, 
-        y=avg_prices,
-        mode='lines+markers',
-        name='Средняя цена',
-        line=dict(color='green', width=2, dash='dot')
+        x=times, 
+        y=moving_avg,
+        mode='lines',
+        name='Скользящее среднее',
+        line=dict(color='red', width=3)
     ))
     
-    fig.add_trace(go.Scatter(
-        x=periods, 
-        y=median_prices,
-        mode='lines+markers',
-        name='Медианная цена',
-        line=dict(color='orange', width=2, dash='dash')
-    ))
-    
-    # Добавляем текущую цену
+    # Текущая цена
     current_price = float(deal['current_price'])
     fig.add_hline(
         y=current_price, 
         line_dash="dash", 
-        line_color="red",
+        line_color="blue",
         annotation_text=f"Текущая цена: {current_price} {deal['currency']}",
         annotation_position="bottom right"
     )
     
-    # Добавляем референсную цену
+    # Референсная цена
     reference_price = float(deal['reference_min_price'])
     fig.add_hline(
         y=reference_price, 
         line_dash="dash", 
-        line_color="purple",
+        line_color="green",
         annotation_text=f"Референсная цена: {reference_price} {deal['currency']}",
         annotation_position="top right"
     )
     
     # Настраиваем оформление
     fig.update_layout(
-        title=f"{deal['item']} - Ценовая история",
-        xaxis_title="Период",
+        title=f"{deal['item']} - История продаж",
+        xaxis_title="Дата продажи",
         yaxis_title=f"Цена ({deal['currency']})",
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
         hovermode="x unified",
-        template="plotly_white"
+        template="plotly_white",
+        showlegend=True
     )
     
     # Сохраняем график
@@ -166,9 +178,10 @@ def generate_html_dashboard(dashboard_data, output_path):
             .card {{ transition: transform 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }}
             .card:hover {{ transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }}
             .discount-badge {{ font-size: 1.1rem; }}
-            .chart-container {{ height: 300px; }}
+            .chart-container {{ height: 400px; }}
             .volume-badge {{ font-size: 0.85rem; }}
             .item-name {{ font-weight: 600; }}
+            .stat-badge {{ font-size: 0.9rem; margin-right: 5px; }}
         </style>
     </head>
     <body>
@@ -188,17 +201,18 @@ def generate_html_dashboard(dashboard_data, output_path):
         reference_price = f"{item['reference_min_price']:.2f}"
         
         # Цвет скидки
-        discount_color = "danger" if item['discount_percent'] < -10 else "warning"
+        discount_color = "danger" if item['discount_percent'] < -15 else "warning"
         
-        # Бейджи объемов
-        volume_badges = [
-            f'<span class="badge bg-secondary volume-badge me-1">24ч: {item["volume_24h"]}</span>',
-            f'<span class="badge bg-secondary volume-badge">7д: {item["volume_7d"]}</span>'
-        ]
-        
-        # Ссылки
-        item_page = item['item_data'].get('item_page', '#')
-        market_page = item['item_data'].get('market_page', '#')
+        # Статистика
+        stats_html = f"""
+        <div class="d-flex flex-wrap mb-2">
+            <span class="badge bg-info stat-badge">Мин: {item['min_price']:.2f}</span>
+            <span class="badge bg-info stat-badge">Макс: {item['max_price']:.2f}</span>
+            <span class="badge bg-info stat-badge">Средн: {item['avg_price']:.2f}</span>
+            <span class="badge bg-info stat-badge">Продажи: {item['sales_count']}</span>
+            <span class="badge bg-info stat-badge">Объем: {item['total_volume']}</span>
+        </div>
+        """
         
         html_content += f"""
                 <div class="col">
@@ -207,7 +221,7 @@ def generate_html_dashboard(dashboard_data, output_path):
                             <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div>
                                     <h5 class="card-title item-name">{item['item']}</h5>
-                                    <div class="mb-2">{''.join(volume_badges)}</div>
+                                    {stats_html}
                                 </div>
                                 <span class="badge bg-{discount_color} discount-badge">
                                     <i class="fa-solid fa-arrow-trend-down"></i> {item['discount_percent']:.1f}%
@@ -216,7 +230,7 @@ def generate_html_dashboard(dashboard_data, output_path):
                             
                             <div class="row">
                                 <div class="col-md-8">
-                                    <div class="chart-container" id="chart-{item['item'][:10]}">
+                                    <div class="chart-container">
                                         <iframe src="{item['chart']}" style="width:100%; height:100%; border:none;"></iframe>
                                     </div>
                                 </div>
@@ -225,18 +239,18 @@ def generate_html_dashboard(dashboard_data, output_path):
                                     <div class="d-grid gap-3">
                                         <div class="d-flex justify-content-between">
                                             <span>Текущая цена:</span>
-                                            <strong>{current_price} {item['item_data'].get('currency', 'EUR')}</strong>
+                                            <strong>{current_price} EUR</strong>
                                         </div>
                                         
                                         <div class="d-flex justify-content-between">
                                             <span>Референсная цена:</span>
-                                            <strong>{reference_price} {item['item_data'].get('currency', 'EUR')}</strong>
+                                            <strong>{reference_price} EUR</strong>
                                         </div>
                                         
                                         <div class="d-flex justify-content-between">
                                             <span>Экономия:</span>
                                             <strong class="text-{discount_color}">
-                                                {item['reference_min_price'] - item['current_price']:.2f} {item['item_data'].get('currency', 'EUR')}
+                                                {item['reference_min_price'] - item['current_price']:.2f} EUR
                                             </strong>
                                         </div>
                                         
@@ -245,15 +259,6 @@ def generate_html_dashboard(dashboard_data, output_path):
                                         <a href="{item['url']}" class="btn btn-primary" target="_blank">
                                             <i class="fa-solid fa-cart-shopping"></i> Купить на Skinport
                                         </a>
-                                        
-                                        <div class="d-grid gap-2">
-                                            <a href="{item_page}" class="btn btn-outline-secondary" target="_blank">
-                                                <i class="fa-solid fa-info-circle"></i> Страница предмета
-                                            </a>
-                                            <a href="{market_page}" class="btn btn-outline-secondary" target="_blank">
-                                                <i class="fa-solid fa-store"></i> Весь рынок
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -273,13 +278,3 @@ def generate_html_dashboard(dashboard_data, output_path):
     
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html_content)
-
-if __name__ == "__main__":
-    # Пример использования
-    print("Запуск генерации дашборда...")
-    result = generate_deals_dashboard(
-        best_deals_csv="data/best_deals.csv",
-        items_dir="data/skinport-items",
-        output_dir="data/dashboard"
-    )
-    print(f"Готово! Сгенерировано {result if result is not None else 0} предложений.")

@@ -8,96 +8,91 @@ const encodedData = Buffer.from(credentials).toString('base64');
 const authHeader = `Basic ${encodedData}`;
 const saveDir = "./data/skinport-items";
 
-// Правильная конфигурация rate limit
 const RATE_LIMIT = {
-    REQUESTS_PER_MINUTE: 60,       // Skinport обычно позволяет 60 запросов в минуту
+    REQUESTS_PER_MINUTE: 60,
     lastRequestTime: 0,
     requestCount: 0
 };
 
-// Функция для создания задержки
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Функция сохранения данных
 const saveToFile = (data, filename) => {
     try {
         if (!fs.existsSync(saveDir)) fs.mkdirSync(saveDir, { recursive: true });
         const filePath = `${saveDir}/${filename}`;
         fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-        console.log(`Данные сохранены в: ${filePath}`);
-        return true;
+        console.log(`💾 Данные сохранены в: ${filePath}`);
     } catch (error) {
-        console.error('Ошибка сохранения:', error);
-        return false;
+        console.error('❌ Ошибка сохранения файла:', error.message);
     }
 };
 
-// Функция для выполнения запроса с учетом rate limit
 const fetchWithRateLimit = async (url, options) => {
     const now = Date.now();
     const timeSinceLastRequest = now - RATE_LIMIT.lastRequestTime;
-    
-    // Если прошла минута - сбрасываем счетчик
+
     if (timeSinceLastRequest > 60000) {
         RATE_LIMIT.requestCount = 0;
         RATE_LIMIT.lastRequestTime = now;
     }
-    
-    // Если достигли лимита - ждем окончания минуты
+
     if (RATE_LIMIT.requestCount >= RATE_LIMIT.REQUESTS_PER_MINUTE) {
-        const timeToWait = 61000 - timeSinceLastRequest; // +1 сек для надежности
-        console.log(`Достигнут лимит запросов. Ожидание ${Math.ceil(timeToWait/1000)} секунд...`);
+        const timeToWait = 61000 - timeSinceLastRequest;
+        console.log(`⏳ Достигнут лимит. Ждём ${Math.ceil(timeToWait / 1000)} сек...`);
         await delay(timeToWait);
-        
-        // Сбрасываем счетчик после ожидания
         RATE_LIMIT.requestCount = 0;
         RATE_LIMIT.lastRequestTime = Date.now();
     }
-    
-    // Увеличиваем счетчик запросов
+
     RATE_LIMIT.requestCount++;
-    console.log(`Запрос #${RATE_LIMIT.requestCount}/${RATE_LIMIT.REQUESTS_PER_MINUTE}`);
-    
+    console.log(`🌐 Запрос #${RATE_LIMIT.requestCount}/${RATE_LIMIT.REQUESTS_PER_MINUTE}`);
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+
     try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 30000);
-        
         const response = await fetch(url, {
             ...options,
             signal: controller.signal
         });
-        
-        clearTimeout(timeoutId);
-        
+
+        clearTimeout(timeout);
+
         if (response.status === 429) {
             const retryAfter = parseInt(response.headers.get('Retry-After') || '10');
-            console.log(`Получена 429 ошибка. Повтор через ${retryAfter} секунд...`);
+            console.warn(`⚠️  429 Too Many Requests. Повтор через ${retryAfter} сек...`);
             await delay(retryAfter * 1000);
             return fetchWithRateLimit(url, options);
         }
-        
+
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`HTTP error: ${response.status}`);
         }
-        
+
         return response;
+
     } catch (error) {
+        clearTimeout(timeout);
         if (error.name === 'AbortError') {
-            console.error('Таймаут запроса (30 секунд)');
+            console.error('🕓 Превышено время ожидания (30 сек)');
+        } else {
+            console.error('❌ Ошибка запроса:', error.message);
         }
         throw error;
     }
 };
 
-// Основная функция
+// 🚀 Основной запуск
 (async () => {
     try {
+        console.log("🚀 Запуск Skinport fetch");
+
         const params = new URLSearchParams({
             app_id: 730,
             currency: 'EUR',
             tradable: 0
         });
-        
+
         const response = await fetchWithRateLimit(
             `https://api.skinport.com/v1/items?${params}`,
             {
@@ -108,21 +103,28 @@ const fetchWithRateLimit = async (url, options) => {
                 }
             }
         );
-        
-        // Получаем данные
-        const data = await response.json();
-        console.log(`Получено ${data.length} элементов`);
-        
-        // Генерация имени файла
+
+        const text = await response.text();
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            console.error("❌ Ошибка разбора JSON:", e.message);
+            console.log("Ответ сервера:", text);
+            process.exit(1);
+        }
+
+        console.log(`✅ Получено предметов: ${data.length}`);
+
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
         const filename = `skinport_items_${timestamp}.json`;
-        
-        // Сохранение в файл
         saveToFile(data, filename);
-        
-        console.log('Запрос успешно выполнен!');
-        
-    } catch (error) {
-        console.error('Критическая ошибка:', error.message);
+
+        console.log("✅ Скрипт успешно завершён.");
+        process.exit(0);
+
+    } catch (e) {
+        console.error("🔥 Критическая ошибка:", e.message);
+        process.exit(1);
     }
 })();

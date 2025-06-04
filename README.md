@@ -44,3 +44,33 @@ skins_trading_bot/
 
 ```
 
+
+```mermaid
+sequenceDiagram
+    participant Engine as 🚀 Engine (engine.py)
+    participant JS_API as 📦 JS API (skinport_items.js + skinport_history.js)
+    participant DB as 🗄️ Database (database.py)
+    participant Analyzer as 🔍 Deal Analyzer (deal_finder.py)
+    participant Visuals as 📊 Visualization Engine (visualizations.py)
+    participant CSV as 💾 Market Data (skinport_market_analysis.csv)
+    participant HTML as 🌐 Dashboard (deals_dashboard.html)
+
+    Note over Engine, JS_API: Data Collection Phase
+    Engine->>JS_API: Execute JavaScript collectors
+    JS_API-->>Engine: Return item/history JSON datasets
+
+    Note over Engine, DB: Data Processing Phase
+    Engine->>DB: Process & integrate market data
+    DB->>CSV: Persist analyzed market trends
+
+    Note over Engine, Analyzer: Deal Discovery Phase
+    Engine->>Analyzer: Find profitable opportunities
+    Analyzer-->>Engine: Return top-ranked deals
+
+    Note over Engine, Visuals: Visualization Phase
+    Engine->>Visuals: Generate interactive dashboard
+    Visuals-->>HTML: Render HTML with live charts
+
+    Note over HTML: User Interaction
+    HTML->>Visuals: Dynamic data filtering (on user action)
+    Visuals-->>HTML: Update visualizations in real-time
