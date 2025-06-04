@@ -7,7 +7,7 @@ import os
 
 logger = logging.getLogger(__name__)
 
-def find_best_deals(input_csv, output_csv, discount_threshold=-15, min_volume=5):
+def find_best_deals(input_csv, output_csv, discount_threshold=-15, min_volume=5, min_price=0.0, max_price=10.0):
     """Анализирует рынок и находит лучшие предложения на основе минимальных цен"""
     best_deals = []
     
@@ -25,28 +25,25 @@ def find_best_deals(input_csv, output_csv, discount_threshold=-15, min_volume=5)
                 
             try:
                 current_price = float(item['current_min_price'])
-                reference_price = None
+                suggested_price = float(item.get('suggested_price', 0))
                 
-                # Ищем минимальную референсную цену (приоритет коротким периодам)
-                for period in ['min_24h', 'min_7d', 'min_30d', 'min_90d']:
-                    price_str = item.get(period, '')
-                    if price_str and float(price_str) > 0:
-                        reference_price = float(price_str)
-                        break
+                # Пропускаем предметы вне диапазона цен
+                if current_price < min_price or current_price > max_price:
+                    continue
                 
-                # Если не нашли исторических данных, пропускаем
-                if reference_price is None:
+                # Пропускаем если suggested_price отсутствует или невалиден
+                if suggested_price <= 0:
                     continue
                     
-                # Рассчитываем скидку относительно минимальной исторической цены
-                discount_percent = (current_price - reference_price) / reference_price * 100
+                # Рассчитываем скидку относительно suggested_price
+                discount_percent = (current_price - suggested_price) / suggested_price * 100
                 
-                # Проверяем объем торгов (используем более консервативный подход)
+                # Проверяем объем торгов
                 volume_24h = float(item.get('volume_24h', 0)) or 0
                 volume_7d = float(item.get('volume_7d', 0) or 0)
                 
                 # Условия для "горячего" предложения:
-                # 1. Текущая цена ниже исторического минимума (с учетом порога)
+                # 1. Текущая цена ниже suggested_price (с учетом порога)
                 # 2. Достаточный объем торгов
                 # 3. Исключаем случаи, когда текущая цена равна 0 или отрицательная
                 if (current_price > 0 and
@@ -60,7 +57,7 @@ def find_best_deals(input_csv, output_csv, discount_threshold=-15, min_volume=5)
                     best_deals.append({
                         'item': item_name,
                         'current_price': current_price,
-                        'reference_min_price': reference_price,
+                        'reference_min_price': suggested_price,  # Используем suggested_price здесь
                         'discount_percent': discount_percent,
                         'url': item_url,
                         'currency': item.get('currency', 'EUR'),

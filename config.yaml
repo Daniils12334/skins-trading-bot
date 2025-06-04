@@ -1,21 +1,23 @@
+# config.yaml
 skinport:
   client_id: "dc907317e57e4481958fbd1f0c40031a"
   client_secret: "fPzfzlb3IQiB4URM0qnNHbBtuvkO7/ttNR0cyfb+AJNNVbK2fq/TjHxtdvP9PTi/qlfEg3TFyKS3B6ru9UvzUg=="
 
 trading:
-  max_item_price: 5           # Макс. цена покупки предмета в EUR
-  display_top: 15             # Кол-во элементов для вывода
-  min_absolute_profit: 0.20   # Минимальная абсолютная прибыль в €
-  min_roi: 10                 # Минимальный ROI в %
-  min_volume: 5               # Минимальный объем торгов за период
-  priority_periods:           # Приоритет периодов для анализа
+  min_item_price: 0.30         # НОВЫЙ ПАРАМЕТР: Минимальная цена предмета в EUR
+  max_item_price: 10.0         # Макс. цена покупки предмета в EUR
+  display_top: 15              # Кол-во элементов для вывода
+  min_absolute_profit: 0.20    # Минимальная абсолютная прибыль в €
+  min_roi: 10                  # Минимальный ROI в %
+  min_volume: 5                # Минимальный объем торгов за период
+  priority_periods:            # Приоритет периодов для анализа
     - "last_24_hours"
     - "last_7_days"
     - "last_30_days"
     - "last_90_days"
 
 # Основные настройки
-update_interval: 500  # Интервал обновления в секундах
+update_interval: 360  # Интервал обновления в секундах
 
 # Настройки визуализации
 visualization:
@@ -24,8 +26,8 @@ visualization:
 # Настройки для поиска выгодных предложений
 deal_finder:
   enabled: true
-  discount_threshold: -5.0  # Более консервативный порог для минимальных цен
-  min_volume: 50             # Более высокий порог объема для надежности
+  discount_threshold: -25.0  # Более консервативный порог для минимальных цен
+  min_volume: 30             # Более высокий порог объема для надежности
 
 scheduler:
   scan_interval_minutes: 30

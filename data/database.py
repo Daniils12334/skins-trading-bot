@@ -22,6 +22,7 @@ class SkinportDatabase:
                 if name:
                     self.items_data[name] = {
                         'current_min_price': item.get('min_price'),
+                        'suggested_price': item.get('suggested_price'),  # Добавлено
                         'currency': item.get('currency', 'EUR')
                     }
             print(f"Loaded {len(self.items_data)} items")
@@ -49,28 +50,22 @@ class SkinportDatabase:
             print(f"Error loading history: {str(e)}")
 
     def merge_data(self):
-        """Объединяет данные из обоих источников"""
         merged = []
-        
-        # Обрабатываем элементы, присутствующие в обоих источниках
         for name in set(self.items_data.keys()) | set(self.history_data.keys()):
             item = self.items_data.get(name, {})
             history = self.history_data.get(name, {})
-            
-            # Определяем валюту (приоритет у актуальных items)
             currency = item.get('currency') or history.get('currency') or 'EUR'
             
             merged.append({
                 'market_hash_name': name,
                 'currency': currency,
                 'current_min_price': item.get('current_min_price'),
+                'suggested_price': item.get('suggested_price'),  # Добавлено
                 **self._extract_period_data(history.get('last_24h', {}), '24h'),
                 **self._extract_period_data(history.get('last_7d', {}), '7d'),
                 **self._extract_period_data(history.get('last_30d', {}), '30d'),
                 **self._extract_period_data(history.get('last_90d', {}), '90d')
             })
-        
-        print(f"Merged {len(merged)} records")
         return merged
 
     def _extract_period_data(self, period, suffix):
@@ -89,7 +84,12 @@ class SkinportDatabase:
             print("No data to export")
             return
         
-        fieldnames = ['market_hash_name', 'currency', 'current_min_price']
+        fieldnames = [
+            'market_hash_name', 
+            'currency', 
+            'current_min_price',
+            'suggested_price'  
+        ]
         periods = ['24h', '7d', '30d', '90d']
         metrics = ['min', 'max', 'avg', 'median', 'volume']
         
