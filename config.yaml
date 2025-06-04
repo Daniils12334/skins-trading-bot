@@ -3,11 +3,34 @@ skinport:
   client_secret: "fPzfzlb3IQiB4URM0qnNHbBtuvkO7/ttNR0cyfb+AJNNVbK2fq/TjHxtdvP9PTi/qlfEg3TFyKS3B6ru9UvzUg=="
 
 trading:
-  max_spend_per_trade: 10.0  # €
-  profit_margin_min: 0.12    # 12%
-  cooldown_between_trades: 3600  # in seconds
-  platforms_priority: ["skinport", "lisskins"]
+  max_item_price: 5           # Макс. цена покупки предмета в EUR
+  display_top: 15             # Кол-во элементов для вывода
+  min_absolute_profit: 0.20   # Минимальная абсолютная прибыль в €
+  min_roi: 10                 # Минимальный ROI в %
+  min_volume: 5               # Минимальный объем торгов за период
+  priority_periods:           # Приоритет периодов для анализа
+    - "last_24_hours"
+    - "last_7_days"
+    - "last_30_days"
+    - "last_90_days"
+
+# Основные настройки
+update_interval: 120  # Интервал обновления в секундах
+
+# Настройки визуализации
+visualization:
+  enabled: true  # Включить генерацию дашборда
+
+# Настройки для поиска выгодных предложений
+deal_finder:
+  enabled: true
+  discount_threshold: -5.0  # Более консервативный порог для минимальных цен
+  min_volume: 50             # Более высокий порог объема для надежности
 
 scheduler:
   scan_interval_minutes: 30
   price_history_days: 90
+
+max_buy_price: 20.0
+min_quantity: 2
+currency: EUR
