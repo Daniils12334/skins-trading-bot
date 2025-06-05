@@ -105,107 +105,10 @@ def generate_deals_dashboard(best_deals_csv, history_dir, items_dir, output_dir)
 
 def create_aggregated_chart(deal, item_history, output_path):
     pass
-    # """Создает график минимальных цен за периоды"""
-    # try:
-    #     # Периоды и их метки
-    #     periods = ['24h', '7d', '30d', '90d']
-    #     period_labels = ['24 часа', '7 дней', '30 дней', '90 дней']
-        
-    #     # Собираем минимальные цены для каждого периода
-    #     min_prices = []
-        
-    #     for period in periods:
-    #         period_key = f'last_{period}'
-    #         period_data = item_history.get(period_key, {})
-    #         min_price = period_data.get('min')
-    #         min_prices.append(min_price)
 
-    #     # Создаем график
-    #     fig = go.Figure()
-        
-    #     # Минимальные цены - толстая синяя линия с точками и значениями
-    #     fig.add_trace(go.Scatter(
-    #         x=period_labels, 
-    #         y=min_prices,
-    #         mode='lines+markers+text',
-    #         name='Минимальная цена',
-    #         line=dict(color='blue', width=4),
-    #         marker=dict(size=12, color='blue'),
-    #         text=[f"{p:.2f}" if p is not None else "N/A" for p in min_prices],
-    #         textposition="top center",
-    #         textfont=dict(size=12, color='blue')
-    #     ))
-        
-    #     # Добавляем заголовок
-    #     title_text = f"{deal['item']} - Минимальные цены"
-        
-    #     # Настраиваем оформление
-    #     fig.update_layout(
-    #         title=dict(text=title_text, font=dict(size=16)),
-    #         xaxis_title="Период",
-    #         yaxis_title=f"Минимальная цена ({deal['currency']})",
-    #         legend=dict(
-    #             orientation="h",
-    #             yanchor="bottom",
-    #             y=1.02,
-    #             xanchor="center",
-    #             x=0.5
-    #         ),
-    #         hovermode="x unified",
-    #         template="plotly_white",
-    #         showlegend=True,
-    #         margin=dict(l=50, r=50, t=80, b=50),
-    #         height=500
-    #     )
-        
-    #     # Настраиваем оси
-    #     fig.update_yaxes(
-    #         title_font=dict(color='blue', size=14),
-    #         tickfont=dict(color='blue', size=12),
-    #         showgrid=True,
-    #         gridwidth=1,
-    #         gridcolor='LightGrey'
-    #     )
-        
-    #     fig.update_xaxes(
-    #         title_font=dict(size=14), 
-    #         tickfont=dict(size=12),
-    #         showgrid=True,
-    #         gridwidth=1,
-    #         gridcolor='LightGrey'
-    #     )
-        
-    #     # Сохраняем график
-    #     fig.write_html(output_path)
-        
-    # except Exception as e:
-    #     print(f"Ошибка создания графика для {deal['item']}: {str(e)}")
-    #     import traceback
-    #     print(traceback.format_exc())
-        
-    #     # Создаем простой график с сообщением об ошибке
-    #     fig = go.Figure()
-    #     fig.update_layout(
-    #         title=f"{deal['item']} - Ошибка данных",
-    #         xaxis=dict(visible=False),
-    #         yaxis=dict(visible=False),
-    #         annotations=[dict(
-    #             text=f"Ошибка: {str(e)}",
-    #             xref="paper",
-    #             yref="paper",
-    #             x=0.5,
-    #             y=0.5,
-    #             showarrow=False,
-    #             font=dict(size=16)
-    #         )]
-    #     )
-    #     fig.write_html(output_path)
-
-
-# core/visualizations.py (обновлённая функция generate_html_dashboard)
 
 def generate_html_dashboard(dashboard_data, output_path):
-    """Генерирует HTML страницу с дашбордом и расчётом прибыли без графиков"""
+    """Генерирует HTML страницу с дашбордом, поиском и фильтрами"""
     html_content = f"""
     <!DOCTYPE html>
     <html lang="ru">
@@ -216,9 +119,26 @@ def generate_html_dashboard(dashboard_data, output_path):
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <style>
-            body {{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; }}
-            .card {{ transition: transform 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }}
-            .card:hover {{ transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }}
+            body {{ 
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+                background-color: #f8f9fa; 
+                opacity: 0;
+                transition: opacity 0.5s ease-in;
+            }}
+            body.loaded {{ 
+                opacity: 1; 
+            }}
+            .card {{ 
+                transition: transform 0.2s; 
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 0.5s forwards;
+            }}
+            .card:hover {{ 
+                transform: translateY(-5px) scale(1.02); 
+                box-shadow: 0 12px 20px rgba(0,0,0,0.15); 
+            }}
             .discount-badge {{ font-size: 1.1rem; }}
             .item-name {{ font-weight: 600; }}
             .stat-badge {{ font-size: 0.9rem; margin-right: 5px; }}
@@ -226,9 +146,81 @@ def generate_html_dashboard(dashboard_data, output_path):
             .profit-negative {{ color: #dc3545; font-weight: bold; }}
             .price-card {{ border-left: 4px solid #0d6efd; }}
             .profit-card {{ border-left: 4px solid #198754; }}
+            .filter-section {{ 
+                background: white; 
+                padding: 15px; 
+                border-radius: 8px; 
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+                margin-bottom: 20px; 
+                opacity: 0;
+                transform: translateY(-20px);
+                animation: fadeInDown 0.5s 0.3s forwards;
+            }}
+            .no-items {{ 
+                display: none; 
+                text-align: center; 
+                padding: 30px; 
+                opacity: 0;
+                animation: fadeIn 0.5s forwards;
+            }}
+            .btn-reset {{ width: 100%; }}
+            #dealsContainer {{
+                opacity: 0;
+                transition: opacity 0.5s;
+            }}
+            #dealsContainer.visible {{
+                opacity: 1;
+            }}
+            @keyframes fadeIn {{
+                from {{ opacity: 0; }}
+                to {{ opacity: 1; }}
+            }}
+            @keyframes fadeInUp {{
+                from {{ 
+                    opacity: 0;
+                    transform: translateY(20px);
+                }}
+                to {{ 
+                    opacity: 1;
+                    transform: translateY(0);
+                }}
+            }}
+            @keyframes fadeInDown {{
+                from {{ 
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }}
+                to {{ 
+                    opacity: 1;
+                    transform: translateY(0);
+                }}
+            }}
+            .loading-overlay {{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.9);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                transition: opacity 0.5s;
+            }}
+            .spinner {{
+                width: 3rem;
+                height: 3rem;
+            }}
         </style>
     </head>
     <body>
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="spinner-border text-primary spinner" role="status">
+                <span class="visually-hidden">Загрузка...</span>
+            </div>
+        </div>
+        
         <div class="container py-4">
             <div class="text-center mb-4">
                 <h1 class="display-4"><i class="fa-solid fa-coins text-primary"></i> Лучшие предложения на Skinport</h1>
@@ -236,22 +228,86 @@ def generate_html_dashboard(dashboard_data, output_path):
                 <p class="text-muted">Обновлено: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
             </div>
             
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Панель фильтров и поиска -->
+            <div class="filter-section">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
+                            <input type="text" id="searchInput" class="form-control" placeholder="Поиск по названию предмета...">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 mb-3">
+                        <select id="profitFilter" class="form-select">
+                            <option value="all">Вся прибыль</option>
+                            <option value="positive">Только прибыльные</option>
+                            <option value="negative">Только убыточные</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-3 mb-3">
+                        <select id="volumeFilter" class="form-select">
+                            <option value="all">Любой объем</option>
+                            <option value="high">Высокий объем (>20)</option>
+                            <option value="medium">Средний объем (5-20)</option>
+                            <option value="low">Низкий объем (<5)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <div class="input-group">
+                            <span class="input-group-text">Мин. прибыль</span>
+                            <input type="number" id="minProfit" class="form-control" placeholder="0.00" step="0.01" value="0.10">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 mb-3">
+                        <div class="input-group">
+                            <span class="input-group-text">Макс. цена</span>
+                            <input type="number" id="maxPrice" class="form-control" placeholder="10.00" step="0.01" value="10.00">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 mb-3">
+                        <div class="input-group">
+                            <span class="input-group-text">Мин. скидка</span>
+                            <input type="number" id="minDiscount" class="form-control" placeholder="20" step="1" value="10">
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 mb-3">
+                        <div class="d-flex gap-2">
+                            <button id="applyFilters" class="btn btn-primary btn-reset">
+                                <i class="fa-solid fa-filter"></i> Применить
+                            </button>
+                            <button id="resetFilters" class="btn btn-outline-danger btn-reset">
+                                <i class="fa-solid fa-rotate-left"></i> Сбросить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="noItemsMessage" class="no-items alert alert-warning">
+                <h4><i class="fa-solid fa-exclamation-circle"></i> Предметы не найдены</h4>
+                <p>Попробуйте изменить параметры фильтров</p>
+            </div>
+            
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="dealsContainer">
     """
     
-    for item in dashboard_data:
+    for i, item in enumerate(dashboard_data):
         # Рассчитываем финансовые показатели
         commission_rate = 0.12
         current_price = float(item['current_price'])
         reference_price = float(item['reference_min_price'])
-        
-        # Выручка после вычета комиссии 12%
         revenue_after_commission = reference_price * (1 - commission_rate)
-        
-        # Прибыль (выручка минус затраты на покупку)
         profit = revenue_after_commission - current_price
         
-        # Рентабельность (%)
         if current_price > 0:
             profitability = (profit / current_price) * 100
         else:
@@ -279,8 +335,14 @@ def generate_html_dashboard(dashboard_data, output_path):
         </div>
         """
         
+        # Добавляем задержку для анимации
+        animation_delay = i * 0.05
         html_content += f"""
-                <div class="col">
+                <div class="col deal-card" data-name="{item['item'].lower()}" 
+                    data-profit="{profit}" data-price="{current_price}" 
+                    data-discount="{abs(float(item['discount_percent']))}" 
+                    data-volume24h="{item['volume_24h']}"
+                    style="animation-delay: {animation_delay}s;">
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start mb-3">
@@ -294,7 +356,6 @@ def generate_html_dashboard(dashboard_data, output_path):
                             </div>
                             
                             <div class="row g-3">
-                                <!-- Карточка цен -->
                                 <div class="col-md-6">
                                     <div class="card price-card h-100">
                                         <div class="card-header bg-primary text-white">
@@ -319,7 +380,6 @@ def generate_html_dashboard(dashboard_data, output_path):
                                     </div>
                                 </div>
                                 
-                                <!-- Карточка прибыли -->
                                 <div class="col-md-6">
                                     <div class="card profit-card h-100">
                                         <div class="card-header bg-success text-white">
@@ -373,12 +433,173 @@ def generate_html_dashboard(dashboard_data, output_path):
         </div>
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const body = document.body;
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                const dealsContainer = document.getElementById('dealsContainer');
+                const searchInput = document.getElementById('searchInput');
+                const profitFilter = document.getElementById('profitFilter');
+                const volumeFilter = document.getElementById('volumeFilter');
+                const minProfitInput = document.getElementById('minProfit');
+                const maxPriceInput = document.getElementById('maxPrice');
+                const minDiscountInput = document.getElementById('minDiscount');
+                const applyFiltersBtn = document.getElementById('applyFilters');
+                const resetFiltersBtn = document.getElementById('resetFilters');
+                const noItemsMessage = document.getElementById('noItemsMessage');
+                
+                // Значения по умолчанию
+                const DEFAULT_FILTERS = {
+                    search: '',
+                    profitType: 'positive',
+                    volumeLevel: 'all',
+                    minProfit: '0.10',
+                    maxPrice: '10.00',
+                    minDiscount: '10'
+                };
+                
+                // Загружаем сохраненные фильтры из localStorage
+                function loadFilters() {
+                    const savedFilters = JSON.parse(localStorage.getItem('dealFilters')) || {};
+                    
+                    // Применяем сохраненные значения или значения по умолчанию
+                    searchInput.value = savedFilters.search || DEFAULT_FILTERS.search;
+                    profitFilter.value = savedFilters.profitType || DEFAULT_FILTERS.profitType;
+                    volumeFilter.value = savedFilters.volumeLevel || DEFAULT_FILTERS.volumeLevel;
+                    minProfitInput.value = savedFilters.minProfit || DEFAULT_FILTERS.minProfit;
+                    maxPriceInput.value = savedFilters.maxPrice || DEFAULT_FILTERS.maxPrice;
+                    minDiscountInput.value = savedFilters.minDiscount || DEFAULT_FILTERS.minDiscount;
+                }
+                
+                // Сохраняем фильтры в localStorage
+                function saveFilters() {
+                    const filters = {
+                        search: searchInput.value,
+                        profitType: profitFilter.value,
+                        volumeLevel: volumeFilter.value,
+                        minProfit: minProfitInput.value,
+                        maxPrice: maxPriceInput.value,
+                        minDiscount: minDiscountInput.value
+                    };
+                    localStorage.setItem('dealFilters', JSON.stringify(filters));
+                }
+                
+                // Сброс фильтров к значениям по умолчанию
+                function resetFilters() {
+                    searchInput.value = DEFAULT_FILTERS.search;
+                    profitFilter.value = DEFAULT_FILTERS.profitType;
+                    volumeFilter.value = DEFAULT_FILTERS.volumeLevel;
+                    minProfitInput.value = DEFAULT_FILTERS.minProfit;
+                    maxPriceInput.value = DEFAULT_FILTERS.maxPrice;
+                    minDiscountInput.value = DEFAULT_FILTERS.minDiscount;
+                    
+                    saveFilters();
+                    filterDeals();
+                }
+                
+                // Функция фильтрации и сортировки сделок
+                function filterDeals() {
+                    const searchTerm = searchInput.value.toLowerCase();
+                    const profitType = profitFilter.value;
+                    const volumeLevel = volumeFilter.value;
+                    const minProfit = parseFloat(minProfitInput.value) || -Infinity;
+                    const maxPrice = parseFloat(maxPriceInput.value) || Infinity;
+                    const minDiscount = parseFloat(minDiscountInput.value) || 0;
+                    
+                    let visibleCards = [];
+                    
+                    // Собираем все карточки сделок
+                    document.querySelectorAll('.deal-card').forEach(card => {
+                        const name = card.dataset.name;
+                        const profit = parseFloat(card.dataset.profit);
+                        const price = parseFloat(card.dataset.price);
+                        const discount = parseFloat(card.dataset.discount);
+                        const volume24h = parseFloat(card.dataset.volume24h);
+                        
+                        // Проверяем соответствие фильтрам
+                        const matchesSearch = name.includes(searchTerm);
+                        const matchesProfitType = 
+                            (profitType === 'all') || 
+                            (profitType === 'positive' && profit > 0) || 
+                            (profitType === 'negative' && profit <= 0);
+                        const matchesMinProfit = profit >= minProfit;
+                        const matchesMaxPrice = price <= maxPrice;
+                        const matchesMinDiscount = discount >= minDiscount;
+                        
+                        // Проверка объема
+                        let matchesVolume = true;
+                        if (volumeLevel === 'high') matchesVolume = volume24h > 20;
+                        else if (volumeLevel === 'medium') matchesVolume = volume24h >= 5 && volume24h <= 20;
+                        else if (volumeLevel === 'low') matchesVolume = volume24h < 5;
+                        
+                        // Показываем/скрываем карточку
+                        if (matchesSearch && matchesProfitType && matchesMinProfit && 
+                            matchesMaxPrice && matchesMinDiscount && matchesVolume) {
+                            card.style.display = 'block';
+                            visibleCards.push(card);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    // Сортируем по прибыли (от большей к меньшей)
+                    visibleCards.sort((a, b) => {
+                        const profitA = parseFloat(a.dataset.profit);
+                        const profitB = parseFloat(b.dataset.profit);
+                        return profitB - profitA;
+                    });
+                    
+                    // Переупорядочиваем карточки в контейнере
+                    const container = document.getElementById('dealsContainer');
+                    container.innerHTML = '';
+                    visibleCards.forEach(card => {
+                        container.appendChild(card);
+                    });
+                    
+                    // Показываем сообщение, если нет видимых элементов
+                    noItemsMessage.style.display = visibleCards.length > 0 ? 'none' : 'block';
+                    
+                    // Сохраняем фильтры
+                    saveFilters();
+                    
+                    // Показываем контейнер после фильтрации
+                    dealsContainer.classList.add('visible');
+                }
+                
+                // События для элементов управления
+                searchInput.addEventListener('input', filterDeals);
+                profitFilter.addEventListener('change', filterDeals);
+                volumeFilter.addEventListener('change', filterDeals);
+                minProfitInput.addEventListener('input', filterDeals);
+                maxPriceInput.addEventListener('input', filterDeals);
+                minDiscountInput.addEventListener('input', filterDeals);
+                applyFiltersBtn.addEventListener('click', filterDeals);
+                resetFiltersBtn.addEventListener('click', resetFilters);
+                
+                // Инициализируем фильтры
+                loadFilters();
+                
+                // Задержка для демонстрации загрузки
+                setTimeout(() => {
+                    filterDeals();
+                    
+                    // Скрываем индикатор загрузки и показываем контент
+                    loadingOverlay.style.opacity = '0';
+                    body.classList.add('loaded');
+                    
+                    setTimeout(() => {
+                        loadingOverlay.style.display = 'none';
+                    }, 500);
+                }, 500);
+            });
+        </script>
     </body>
     </html>
     """
     
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html_content)
+
 
 def format_price(price):
     """Форматирует цену для отображения"""

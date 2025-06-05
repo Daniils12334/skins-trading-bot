@@ -5,6 +5,8 @@
 - [📂 Core (Main Logic)](core/README.md)
 - [📂 Markets (Work with API)](markets/README.md)
 - [📂 Data (Storage Structure)](data/README.md)
+- [📂 ML (Model Training)](ml/README.md)
+
 
 ```text
 skins_trading_bot/
