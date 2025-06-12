@@ -1,0 +1,6 @@
+[INFO] 2025-06-12 18:08:02,269 market_merger: Saved merged market data to data/combined_markets/merged_markets_20250612_180802.parquet
+[INFO] 2025-06-12 18:28:41,353 market_merger: Saved merged market data to data/combined_markets/merged_markets_2025-06-12_18-28-41.parquet
+[INFO] 2025-06-12 18:31:54,256 market_merger: Saved merged market data to data/combined_markets/merged_markets_2025-06-12_18-31-54.parquet
+[INFO] 2025-06-12 18:35:27,484 market_merger: Saved merged market data to data/combined_markets/merged_markets_2025-06-12_18-35-27.parquet
+[INFO] 2025-06-12 18:42:31,771 market_merger: Saved merged market data to data/combined_markets/merged_markets_2025-06-12_18-42-31.parquet
+[INFO] 2025-06-12 18:44:46,104 market_merger: Saved merged market data to data/combined_markets/merged_markets_2025-06-12_18-44-46.parquet

@@ -1,38 +1,32 @@
-# config.yaml
+engine:
+  sp_items_interval: 220
+  ls_items_intervals: 220
+
+data:
+  raw:
+    skinport_items: "data/skinport/items"
+    lis_skins: "data/lis-skins/items"
+  aggregated:
+    skinport: "data/aggregated/skinport"
+    lis_skins: "data/aggregated/lis-skins"
+  historical:
+    skinport: "data/historical/sp_items"
+    lis_skins: "data/historical/ls_items"
+  reports: "data/reports"
+  combined: "data/combined_markets"
+
 skinport:
-  client_id: "dc907317e57e4481958fbd1f0c40031a"
-  client_secret: "fPzfzlb3IQiB4URM0qnNHbBtuvkO7/ttNR0cyfb+AJNNVbK2fq/TjHxtdvP9PTi/qlfEg3TFyKS3B6ru9UvzUg=="
+  commission_rate: 0.12
 
-trading:
-  min_item_price: 0.30         # НОВЫЙ ПАРАМЕТР: Минимальная цена предмета в EUR
-  max_item_price: 10.0         # Макс. цена покупки предмета в EUR
-  display_top: 15              # Кол-во элементов для вывода
-  min_absolute_profit: 0.20    # Минимальная абсолютная прибыль в €
-  min_roi: 10                  # Минимальный ROI в %
-  min_volume: 5                # Минимальный объем торгов за период
-  priority_periods:            # Приоритет периодов для анализа
-    - "last_24_hours"
-    - "last_7_days"
-    - "last_30_days"
-    - "last_90_days"
+strategy:
+  min_profit_pct: 20
+  min_quantity: 1
+  max_profit_pct: 200
 
-# Основные настройки
-update_interval: 220  # Интервал обновления в секундах
+risk:
+  max_investment_per_item: 15
+  max_total_investment: 50
+  max_items_per_day: 10
 
-# Настройки визуализации
-visualization:
-  enabled: true  # Включить генерацию дашборда
-
-# Настройки для поиска выгодных предложений
-deal_finder:
-  enabled: true
-  discount_threshold: -25.0  # Более консервативный порог для минимальных цен
-  min_volume: 30             # Более высокий порог объема для надежности
-
-scheduler:
-  scan_interval_minutes: 30
-  price_history_days: 90
-
-max_buy_price: 20.0
-min_quantity: 2
-currency: EUR
+html_reports:
+  path: "data/html_report"
