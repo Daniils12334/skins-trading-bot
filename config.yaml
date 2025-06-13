@@ -1,6 +1,7 @@
 engine:
-  sp_items_interval: 220
-  ls_items_intervals: 220
+  cycle_interval: 220  # 10 minutes
+  fetch_timeout: 90    # 1.5 min per market
+  auto_open: true
 
 data:
   raw:
@@ -20,13 +21,13 @@ skinport:
 
 strategy:
   min_profit_pct: 20
-  min_quantity: 1
+  min_quantity: 100
   max_profit_pct: 200
 
 risk:
   max_investment_per_item: 15
   max_total_investment: 50
-  max_items_per_day: 10
+  max_items_per_day: 200
 
 html_reports:
   path: "data/html_report"

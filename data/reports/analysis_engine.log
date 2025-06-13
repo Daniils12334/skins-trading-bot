@@ -1,0 +1,4 @@
+[INFO] 2025-06-13 11:48:50,748 analysis_engine: Analysis engine started
+[ERROR] 2025-06-13 11:49:02,713 analysis_engine: Analysis failed: API requests timed out
+[INFO] 2025-06-13 12:21:09,605 analysis_engine: Analysis engine started
+[ERROR] 2025-06-13 12:21:23,375 analysis_engine: Analysis failed: API requests timed out

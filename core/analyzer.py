@@ -72,7 +72,7 @@ def generate_html_report(opportunities_df, output_path=None):
     config = load_config()
     
     if output_path is None:
-        output_path = Path(config['html_reports']['path']) / f"market_opportunities_{datetime.now().strftime('%Y%m%d_%H%M')}.html"
+        output_path = Path(config['html_reports']['path']) / f"market_opportunities.html"
     
     # Prepare data for display
     report_df = opportunities_df[[
