@@ -187,3 +187,21 @@
 [INFO] 2025-06-14 23:22:12,073 market_engine: Generating report at data/html_report/market_opportunities.html
 [INFO] 2025-06-14 23:22:12,085 market_engine: Report generated: file:///home/danbar/Desktop/skins-trading-bot/data/html_report/market_opportunities.html
 [INFO] 2025-06-14 23:22:12,557 market_engine: Cycle completed in 38.4s. Next cycle in 261.6s
+[INFO] 2025-06-15 02:55:00,137 market_engine: MarketEngine initialized
+[INFO] 2025-06-15 02:56:08,822 market_engine: MarketEngine initialized
+[INFO] 2025-06-15 03:03:22,640 market_engine: MarketEngine initialized
+[INFO] 2025-06-15 03:03:24,566 market_engine: Starting market engine. Cycle interval: 300s
+[INFO] 2025-06-15 03:03:24,566 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-15 03:03:24,566 market_engine: Starting cycle at 2025-06-15 03:03:24
+[INFO] 2025-06-15 03:03:24,566 market_engine: Starting new analysis cycle
+[INFO] 2025-06-15 03:03:24,566 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-15 03:03:24,567 market_engine: Starting LisSkins data fetch...
+[INFO] 2025-06-15 03:03:25,734 market_engine: Skinport fetch successful (25189 items)
+[INFO] 2025-06-15 03:03:47,111 market_engine: LisSkins fetch successful (4 items)
+[INFO] 2025-06-15 03:03:47,134 market_engine: Merging market data...
+[INFO] 2025-06-15 03:03:49,116 market_engine: Merged data shape: (25640, 9)
+[INFO] 2025-06-15 03:03:49,116 market_engine: Analyzing opportunities...
+[INFO] 2025-06-15 03:03:49,123 market_engine: Found 39 opportunities
+[INFO] 2025-06-15 03:03:49,124 market_engine: Generating report at data/html_report/market_opportunities.html
+[INFO] 2025-06-15 03:03:49,138 market_engine: Report generated: file:///home/danbar/Desktop/skins-trading-bot/data/html_report/market_opportunities.html
+[INFO] 2025-06-15 03:03:49,624 market_engine: Cycle completed in 25.1s. Next cycle in 274.9s
