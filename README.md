@@ -90,17 +90,6 @@ The bot maintains a comprehensive trading journal (`trading_journal.csv`) with d
 - Automated trade execution
 - Machine learning price prediction
 - Portfolio risk analysis
-# Getting Started
-## Installation
-```bash
-git clone https://github.com/yourrepo/skins-trading-bot.git
-cd skins-trading-bot
-pip install -r requirements.txt
-```
-## Running the Application
-```bash
-python main.py
-```
 
 # Price Formation Analysis and HTML Visualization
 
@@ -200,6 +189,18 @@ Data columns:
 - Touch-friendly interactive elements
 
 ## The HTML reports are generated automatically after each market scan, providing traders with up-to-date visual analysis of market conditions and trading opportunities.
+
+# Getting Started
+## Installation
+```bash
+git clone https://github.com/yourrepo/skins-trading-bot.git
+cd skins-trading-bot
+pip install -r requirements.txt
+```
+## Running the Application
+```bash
+python main.py
+```
 
 # First-Time Setup
 

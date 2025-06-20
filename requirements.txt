@@ -1,2 +1,7 @@
 pandas
 requests
+numpy
+logging
+jinja2
+webbrowser
+pyyaml
