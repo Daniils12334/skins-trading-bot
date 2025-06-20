@@ -165,7 +165,7 @@ Data columns:
 # HTML Visualization
 
 ## Here's an HTML report structure showing our price analysis:
-![App Screenshot](stock/app_showcase.png)
+![App Screenshot](stock/dashboard.png)
 
 ## Key Visualization Features
 
