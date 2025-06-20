@@ -1,2 +1,3 @@
 data/lis-skins/items/*.json
 data/skinport/items/*.json
+**/__pycache__/

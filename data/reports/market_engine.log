@@ -205,3 +205,447 @@
 [INFO] 2025-06-15 03:03:49,124 market_engine: Generating report at data/html_report/market_opportunities.html
 [INFO] 2025-06-15 03:03:49,138 market_engine: Report generated: file:///home/danbar/Desktop/skins-trading-bot/data/html_report/market_opportunities.html
 [INFO] 2025-06-15 03:03:49,624 market_engine: Cycle completed in 25.1s. Next cycle in 274.9s
+[INFO] 2025-06-15 15:07:20,970 market_engine: MarketEngine initialized
+[INFO] 2025-06-15 23:10:45,299 market_engine: MarketEngine initialized
+[INFO] 2025-06-15 23:10:46,876 market_engine: Starting market engine. Cycle interval: 300s
+[INFO] 2025-06-15 23:10:46,876 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-15 23:10:46,876 market_engine: Starting cycle at 2025-06-15 23:10:46
+[INFO] 2025-06-15 23:10:46,877 market_engine: Starting new analysis cycle
+[INFO] 2025-06-15 23:10:46,877 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-15 23:10:46,877 market_engine: Starting LisSkins data fetch...
+[INFO] 2025-06-15 23:10:48,056 market_engine: Skinport fetch successful (25193 items)
+[INFO] 2025-06-15 23:11:28,058 market_engine: LisSkins fetch successful (4 items)
+[INFO] 2025-06-15 23:11:28,097 market_engine: Merging market data...
+[INFO] 2025-06-15 23:11:31,044 market_engine: Merged data shape: (25605, 9)
+[INFO] 2025-06-15 23:11:31,044 market_engine: Analyzing opportunities...
+[INFO] 2025-06-15 23:11:31,051 market_engine: Found 43 opportunities
+[INFO] 2025-06-15 23:11:31,051 market_engine: Generating report at data/html_report/market_opportunities.html
+[INFO] 2025-06-15 23:11:31,065 market_engine: Report generated: file:///home/danbar/Desktop/skins-trading-bot/data/html_report/market_opportunities.html
+[INFO] 2025-06-15 23:11:31,617 market_engine: Cycle completed in 44.7s. Next cycle in 255.3s
+[INFO] 2025-06-15 23:13:32,522 market_engine: MarketEngine initialized
+[INFO] 2025-06-16 13:35:50,029 market_engine: MarketEngine initialized
+[INFO] 2025-06-16 16:14:30,835 market_engine: MarketEngine initialized
+[INFO] 2025-06-16 16:15:39,168 market_engine: Starting market engine. Cycle interval: 300s
+[INFO] 2025-06-16 16:15:39,168 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-16 16:15:39,168 market_engine: Starting cycle at 2025-06-16 16:15:39
+[INFO] 2025-06-16 16:15:39,168 market_engine: Starting new analysis cycle
+[INFO] 2025-06-16 16:15:39,169 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-16 16:15:39,169 market_engine: Starting LisSkins data fetch...
+[INFO] 2025-06-16 16:15:40,376 market_engine: Skinport fetch successful (25193 items)
+[INFO] 2025-06-16 16:16:02,837 market_engine: LisSkins fetch successful (4 items)
+[INFO] 2025-06-16 16:16:02,845 market_engine: Merging market data...
+[INFO] 2025-06-16 16:16:04,878 market_engine: Merged data shape: (25648, 9)
+[INFO] 2025-06-16 16:16:04,878 market_engine: Analyzing opportunities...
+[INFO] 2025-06-16 16:16:04,888 market_engine: Found 46 opportunities
+[INFO] 2025-06-16 16:16:04,888 market_engine: Generating report at data/html_report/market_opportunities.html
+[INFO] 2025-06-16 16:16:04,900 market_engine: Report generated: file:///home/danbar/Desktop/skins-trading-bot/data/html_report/market_opportunities.html
+[INFO] 2025-06-16 16:16:05,382 market_engine: Cycle completed in 26.2s. Next cycle in 273.8s
+[INFO] 2025-06-16 16:16:31,802 market_engine: MarketEngine initialized
+[INFO] 2025-06-16 16:21:33,444 market_engine: MarketEngine initialized
+[INFO] 2025-06-16 21:23:05,237 market_engine: MarketEngine initialized
+[INFO] 2025-06-17 12:00:28,395 market_engine: MarketEngine initialized
+[INFO] 2025-06-17 12:24:19,810 market_engine: Starting market engine. Cycle interval: 300s
+[INFO] 2025-06-17 12:24:19,813 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-17 12:24:19,813 market_engine: Starting cycle at 2025-06-17 12:24:19
+[INFO] 2025-06-17 12:24:19,813 market_engine: Starting new analysis cycle
+[INFO] 2025-06-17 12:24:19,813 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-17 12:24:19,814 market_engine: Starting LisSkins data fetch...
+[INFO] 2025-06-17 12:24:21,038 market_engine: Skinport fetch successful (25198 items)
+[INFO] 2025-06-17 12:24:50,943 market_engine: LisSkins fetch successful (4 items)
+[INFO] 2025-06-17 12:24:50,993 market_engine: Merging market data...
+[INFO] 2025-06-17 12:24:53,827 market_engine: Merged data shape: (25653, 9)
+[INFO] 2025-06-17 12:24:53,827 market_engine: Analyzing opportunities...
+[INFO] 2025-06-17 12:24:53,834 market_engine: Found 40 opportunities
+[INFO] 2025-06-17 12:24:53,834 market_engine: Generating report at data/html_report/market_opportunities.html
+[INFO] 2025-06-17 12:24:53,847 market_engine: Report generated: file:///home/danbar/Desktop/skins-trading-bot/data/html_report/market_opportunities.html
+[INFO] 2025-06-17 12:24:54,388 market_engine: Cycle completed in 34.6s. Next cycle in 265.4s
+[INFO] 2025-06-17 12:58:29,307 market_engine: MarketEngine initialized
+[INFO] 2025-06-17 13:00:31,044 market_engine: Starting market engine. Cycle interval: 300s
+[INFO] 2025-06-17 13:00:31,044 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-17 13:00:31,044 market_engine: Starting cycle at 2025-06-17 13:00:31
+[INFO] 2025-06-17 13:00:31,044 market_engine: Starting new analysis cycle
+[INFO] 2025-06-17 13:00:31,045 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-17 13:00:31,045 market_engine: Starting LisSkins data fetch...
+[INFO] 2025-06-17 13:00:44,524 market_engine: Skinport fetch successful (25198 items)
+[INFO] 2025-06-17 13:00:57,281 market_engine: LisSkins fetch successful (4 items)
+[INFO] 2025-06-17 13:00:57,309 market_engine: Merging market data...
+[INFO] 2025-06-17 13:01:00,492 market_engine: Merged data shape: (25652, 9)
+[INFO] 2025-06-17 13:01:00,492 market_engine: Analyzing opportunities...
+[INFO] 2025-06-17 13:01:00,499 market_engine: Found 197 opportunities
+[INFO] 2025-06-17 13:01:00,499 market_engine: Generating report at data/html_report/market_opportunities.html
+[INFO] 2025-06-17 13:01:00,520 market_engine: Report generated: file:///home/danbar/Desktop/skins-trading-bot/data/html_report/market_opportunities.html
+[INFO] 2025-06-17 13:01:01,088 market_engine: Cycle completed in 30.0s. Next cycle in 270.0s
+[INFO] 2025-06-17 13:05:31,044 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-17 13:05:31,045 market_engine: Starting cycle at 2025-06-17 13:05:31
+[INFO] 2025-06-17 13:05:31,045 market_engine: Starting new analysis cycle
+[INFO] 2025-06-17 13:05:31,045 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-17 13:05:31,045 market_engine: Starting LisSkins data fetch...
+[INFO] 2025-06-17 13:05:32,913 market_engine: Skinport fetch successful (25198 items)
+[INFO] 2025-06-17 13:05:57,102 market_engine: LisSkins fetch successful (4 items)
+[INFO] 2025-06-17 13:05:57,129 market_engine: Merging market data...
+[INFO] 2025-06-17 13:05:59,226 market_engine: Merged data shape: (25652, 9)
+[INFO] 2025-06-17 13:05:59,226 market_engine: Analyzing opportunities...
+[INFO] 2025-06-17 13:05:59,235 market_engine: Found 199 opportunities
+[INFO] 2025-06-17 13:05:59,235 market_engine: Generating report at data/html_report/market_opportunities.html
+[INFO] 2025-06-17 13:05:59,251 market_engine: Report generated: file:///home/danbar/Desktop/skins-trading-bot/data/html_report/market_opportunities.html
+[INFO] 2025-06-17 13:05:59,439 market_engine: Cycle completed in 28.4s. Next cycle in 271.6s
+[INFO] 2025-06-17 13:10:31,045 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-17 13:10:31,045 market_engine: Starting cycle at 2025-06-17 13:10:31
+[INFO] 2025-06-17 13:10:31,045 market_engine: Starting new analysis cycle
+[INFO] 2025-06-17 13:10:31,045 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-17 13:10:31,045 market_engine: Starting LisSkins data fetch...
+[INFO] 2025-06-17 13:10:32,612 market_engine: Skinport fetch successful (25198 items)
+[INFO] 2025-06-17 14:13:47,026 market_engine: MarketEngine initialized
+[INFO] 2025-06-17 14:13:48,837 market_engine: Starting market engine. Cycle interval: 300s
+[INFO] 2025-06-17 14:13:48,837 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-17 14:13:48,837 market_engine: Starting cycle at 2025-06-17 14:13:48
+[INFO] 2025-06-17 14:13:48,837 market_engine: Starting new analysis cycle
+[INFO] 2025-06-17 14:13:48,837 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-17 14:13:48,837 market_engine: Starting LisSkins data fetch...
+[INFO] 2025-06-17 14:13:50,010 market_engine: Skinport fetch successful (25198 items)
+[INFO] 2025-06-17 14:14:16,575 market_engine: LisSkins fetch successful (4 items)
+[INFO] 2025-06-17 14:14:16,585 market_engine: Merging market data...
+[INFO] 2025-06-17 14:14:18,627 market_engine: Merged data shape: (25654, 9)
+[INFO] 2025-06-17 14:14:18,627 market_engine: Analyzing opportunities...
+[INFO] 2025-06-17 14:14:18,634 market_engine: Found 200 opportunities
+[INFO] 2025-06-17 14:14:18,634 market_engine: Generating report at data/html_report/market_opportunities.html
+[INFO] 2025-06-17 14:14:18,655 market_engine: Report generated: file:///home/danbar/Desktop/skins-trading-bot/data/html_report/market_opportunities.html
+[INFO] 2025-06-17 14:14:19,147 market_engine: Cycle completed in 30.3s. Next cycle in 269.7s
+[INFO] 2025-06-18 21:06:37,158 market_engine: MarketEngine initialized
+[INFO] 2025-06-18 21:10:14,502 market_engine: MarketEngine initialized
+[INFO] 2025-06-18 21:10:19,582 market_engine: Starting market engine. Cycle interval: 300s
+[INFO] 2025-06-18 21:10:19,582 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-18 21:10:19,582 market_engine: Starting cycle at 2025-06-18 21:10:19
+[INFO] 2025-06-18 21:10:19,582 market_engine: Starting new analysis cycle
+[INFO] 2025-06-18 21:10:19,582 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-18 21:10:19,583 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-18 21:10:20,399 market_engine: Skinport returned no data
+[INFO] 2025-06-18 21:10:56,627 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-18 21:10:56,636 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-18 21:10:57,217 market_engine: Cycle completed in 37.6s. Next cycle in 262.4s
+[INFO] 2025-06-18 21:15:19,582 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-18 21:15:19,583 market_engine: Starting cycle at 2025-06-18 21:15:19
+[INFO] 2025-06-18 21:15:19,583 market_engine: Starting new analysis cycle
+[INFO] 2025-06-18 21:15:19,583 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-18 21:15:19,583 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-18 21:15:20,439 market_engine: Skinport returned no data
+[INFO] 2025-06-18 21:15:48,176 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-18 21:15:48,200 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-18 21:15:48,915 market_engine: Cycle completed in 29.3s. Next cycle in 270.7s
+[INFO] 2025-06-18 21:20:19,583 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-18 21:20:19,583 market_engine: Starting cycle at 2025-06-18 21:20:19
+[INFO] 2025-06-18 21:20:19,583 market_engine: Starting new analysis cycle
+[INFO] 2025-06-18 21:20:19,583 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-18 21:20:19,583 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-18 21:20:20,394 market_engine: Skinport returned no data
+[INFO] 2025-06-18 21:20:47,210 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-18 21:20:47,218 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-18 21:20:47,841 market_engine: Cycle completed in 28.3s. Next cycle in 271.7s
+[INFO] 2025-06-18 21:25:19,583 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-18 21:25:19,583 market_engine: Starting cycle at 2025-06-18 21:25:19
+[INFO] 2025-06-18 21:25:19,583 market_engine: Starting new analysis cycle
+[INFO] 2025-06-18 21:25:19,583 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-18 21:25:19,584 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-18 21:25:20,420 market_engine: Skinport returned no data
+[INFO] 2025-06-18 21:25:47,053 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-18 21:25:47,057 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-18 21:25:47,679 market_engine: Cycle completed in 28.1s. Next cycle in 271.9s
+[INFO] 2025-06-18 21:30:19,583 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-18 21:30:19,584 market_engine: Starting cycle at 2025-06-18 21:30:19
+[INFO] 2025-06-18 21:30:19,584 market_engine: Starting new analysis cycle
+[INFO] 2025-06-18 21:30:19,584 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-18 21:30:19,584 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-18 21:30:20,409 market_engine: Skinport returned no data
+[INFO] 2025-06-18 21:30:45,645 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-18 21:30:45,650 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-18 21:30:46,272 market_engine: Cycle completed in 26.7s. Next cycle in 273.3s
+[INFO] 2025-06-18 21:35:19,584 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-18 21:35:19,584 market_engine: Starting cycle at 2025-06-18 21:35:19
+[INFO] 2025-06-18 21:35:19,584 market_engine: Starting new analysis cycle
+[INFO] 2025-06-18 21:35:19,584 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-18 21:35:19,584 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-18 21:35:20,508 market_engine: Skinport returned no data
+[INFO] 2025-06-18 21:35:45,830 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-18 21:35:45,853 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-18 21:35:46,457 market_engine: Cycle completed in 26.9s. Next cycle in 273.1s
+[INFO] 2025-06-18 21:40:19,584 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-18 21:40:19,584 market_engine: Starting cycle at 2025-06-18 21:40:19
+[INFO] 2025-06-18 21:40:19,584 market_engine: Starting new analysis cycle
+[INFO] 2025-06-18 21:40:19,584 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-18 21:40:19,584 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-18 21:40:20,399 market_engine: Skinport returned no data
+[INFO] 2025-06-18 21:40:47,438 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-18 21:40:47,448 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-18 21:40:48,062 market_engine: Cycle completed in 28.5s. Next cycle in 271.5s
+[INFO] 2025-06-18 21:45:19,584 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-18 21:45:19,584 market_engine: Starting cycle at 2025-06-18 21:45:19
+[INFO] 2025-06-18 21:45:19,585 market_engine: Starting new analysis cycle
+[INFO] 2025-06-18 21:45:19,585 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-18 21:45:19,585 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-18 21:45:20,672 market_engine: Skinport returned no data
+[INFO] 2025-06-18 21:45:45,843 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-18 21:45:45,859 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-18 21:45:46,651 market_engine: Cycle completed in 27.1s. Next cycle in 272.9s
+[INFO] 2025-06-18 21:50:19,585 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-18 21:50:19,585 market_engine: Starting cycle at 2025-06-18 21:50:19
+[INFO] 2025-06-18 21:50:19,585 market_engine: Starting new analysis cycle
+[INFO] 2025-06-18 21:50:19,585 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-18 21:50:19,585 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-18 21:50:20,696 market_engine: Skinport returned no data
+[INFO] 2025-06-18 21:50:45,626 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-18 21:50:45,631 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-18 21:50:46,303 market_engine: Cycle completed in 26.7s. Next cycle in 273.3s
+[INFO] 2025-06-18 21:55:19,585 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-18 21:55:19,585 market_engine: Starting cycle at 2025-06-18 21:55:19
+[INFO] 2025-06-18 21:55:19,585 market_engine: Starting new analysis cycle
+[INFO] 2025-06-18 21:55:19,585 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-18 21:55:19,585 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-18 21:55:20,485 market_engine: Skinport returned no data
+[INFO] 2025-06-18 21:55:47,098 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-18 21:55:47,104 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-18 21:55:47,736 market_engine: Cycle completed in 28.2s. Next cycle in 271.8s
+[INFO] 2025-06-18 22:00:19,585 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-18 22:00:19,585 market_engine: Starting cycle at 2025-06-18 22:00:19
+[INFO] 2025-06-18 22:00:19,585 market_engine: Starting new analysis cycle
+[INFO] 2025-06-18 22:00:19,586 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-18 22:00:19,586 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-18 22:00:20,428 market_engine: Skinport returned no data
+[INFO] 2025-06-18 22:00:43,356 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-18 22:00:43,361 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-18 22:00:43,853 market_engine: Cycle completed in 24.3s. Next cycle in 275.7s
+[INFO] 2025-06-19 14:00:43,484 market_engine: MarketEngine initialized
+[INFO] 2025-06-19 14:02:45,841 market_engine: Starting market engine. Cycle interval: 300s
+[INFO] 2025-06-19 14:02:45,841 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 14:02:45,841 market_engine: Starting cycle at 2025-06-19 14:02:45
+[INFO] 2025-06-19 14:02:45,841 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 14:02:45,841 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 14:02:45,841 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 14:02:46,694 market_engine: Skinport returned no data
+[INFO] 2025-06-19 14:03:13,900 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 14:03:13,911 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 14:03:14,508 market_engine: Cycle completed in 28.7s. Next cycle in 271.3s
+[INFO] 2025-06-19 14:07:45,841 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 14:07:45,841 market_engine: Starting cycle at 2025-06-19 14:07:45
+[INFO] 2025-06-19 14:07:45,842 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 14:07:45,842 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 14:07:45,842 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 14:07:46,800 market_engine: Skinport returned no data
+[INFO] 2025-06-19 14:08:14,059 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 14:08:14,067 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 14:08:14,691 market_engine: Cycle completed in 28.8s. Next cycle in 271.2s
+[INFO] 2025-06-19 14:12:45,842 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 14:12:45,842 market_engine: Starting cycle at 2025-06-19 14:12:45
+[INFO] 2025-06-19 14:12:45,842 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 14:12:45,842 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 14:12:45,842 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 14:12:46,690 market_engine: Skinport returned no data
+[INFO] 2025-06-19 14:13:13,958 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 14:13:13,972 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 14:13:14,603 market_engine: Cycle completed in 28.8s. Next cycle in 271.2s
+[INFO] 2025-06-19 14:17:45,842 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 14:17:45,842 market_engine: Starting cycle at 2025-06-19 14:17:45
+[INFO] 2025-06-19 14:17:45,842 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 14:17:45,842 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 14:17:45,842 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 14:17:46,722 market_engine: Skinport returned no data
+[INFO] 2025-06-19 14:18:13,881 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 14:18:13,908 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 14:18:14,543 market_engine: Cycle completed in 28.7s. Next cycle in 271.3s
+[INFO] 2025-06-19 14:22:45,842 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 14:22:45,842 market_engine: Starting cycle at 2025-06-19 14:22:45
+[INFO] 2025-06-19 14:22:45,842 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 14:22:45,842 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 14:22:45,843 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 14:22:46,708 market_engine: Skinport returned no data
+[INFO] 2025-06-19 14:23:13,101 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 14:23:13,128 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 14:23:13,754 market_engine: Cycle completed in 27.9s. Next cycle in 272.1s
+[INFO] 2025-06-19 14:27:45,842 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 14:27:45,843 market_engine: Starting cycle at 2025-06-19 14:27:45
+[INFO] 2025-06-19 14:27:45,843 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 14:27:45,843 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 14:27:45,843 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 14:27:46,708 market_engine: Skinport returned no data
+[INFO] 2025-06-19 14:28:13,219 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 14:28:13,225 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 14:28:13,848 market_engine: Cycle completed in 28.0s. Next cycle in 272.0s
+[INFO] 2025-06-19 14:32:45,843 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 14:32:45,843 market_engine: Starting cycle at 2025-06-19 14:32:45
+[INFO] 2025-06-19 14:32:45,843 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 14:32:45,843 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 14:32:45,843 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 14:32:46,639 market_engine: Skinport returned no data
+[INFO] 2025-06-19 14:33:16,439 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 14:33:16,471 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 14:33:17,104 market_engine: Cycle completed in 31.3s. Next cycle in 268.7s
+[INFO] 2025-06-19 14:37:45,843 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 14:37:45,843 market_engine: Starting cycle at 2025-06-19 14:37:45
+[INFO] 2025-06-19 14:37:45,843 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 14:37:45,843 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 14:37:45,843 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 14:37:46,640 market_engine: Skinport returned no data
+[INFO] 2025-06-19 14:38:14,511 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 14:38:14,526 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 14:38:15,194 market_engine: Cycle completed in 29.4s. Next cycle in 270.6s
+[INFO] 2025-06-19 14:42:45,843 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 14:42:45,843 market_engine: Starting cycle at 2025-06-19 14:42:45
+[INFO] 2025-06-19 14:42:45,844 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 14:42:45,844 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 14:42:45,844 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 14:42:46,621 market_engine: Skinport returned no data
+[INFO] 2025-06-19 14:43:14,192 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 14:43:14,203 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 14:43:14,845 market_engine: Cycle completed in 29.0s. Next cycle in 271.0s
+[INFO] 2025-06-19 14:47:45,843 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 14:47:45,844 market_engine: Starting cycle at 2025-06-19 14:47:45
+[INFO] 2025-06-19 14:47:45,844 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 14:47:45,844 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 14:47:45,844 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 14:47:46,701 market_engine: Skinport returned no data
+[INFO] 2025-06-19 14:48:35,575 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 14:48:35,578 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 14:48:36,215 market_engine: Cycle completed in 50.4s. Next cycle in 249.6s
+[INFO] 2025-06-19 14:52:45,844 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 14:52:45,844 market_engine: Starting cycle at 2025-06-19 14:52:45
+[INFO] 2025-06-19 14:52:45,844 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 14:52:45,844 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 14:52:45,844 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 14:52:46,639 market_engine: Skinport returned no data
+[INFO] 2025-06-19 14:53:15,098 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 14:53:15,120 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 14:53:15,751 market_engine: Cycle completed in 29.9s. Next cycle in 270.1s
+[INFO] 2025-06-19 14:57:45,844 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 14:57:45,844 market_engine: Starting cycle at 2025-06-19 14:57:45
+[INFO] 2025-06-19 14:57:45,844 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 14:57:45,844 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 14:57:45,844 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 14:57:46,759 market_engine: Skinport returned no data
+[INFO] 2025-06-19 14:58:16,676 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 14:58:16,692 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 14:58:17,346 market_engine: Cycle completed in 31.5s. Next cycle in 268.5s
+[INFO] 2025-06-19 15:02:45,844 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 15:02:45,844 market_engine: Starting cycle at 2025-06-19 15:02:45
+[INFO] 2025-06-19 15:02:45,844 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 15:02:45,845 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 15:02:45,845 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 15:02:46,688 market_engine: Skinport returned no data
+[INFO] 2025-06-19 15:03:14,026 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 15:03:14,026 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 15:03:14,617 market_engine: Cycle completed in 28.8s. Next cycle in 271.2s
+[INFO] 2025-06-19 15:07:45,844 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 15:07:45,845 market_engine: Starting cycle at 2025-06-19 15:07:45
+[INFO] 2025-06-19 15:07:45,845 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 15:07:45,845 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 15:07:45,845 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 15:07:46,674 market_engine: Skinport returned no data
+[INFO] 2025-06-19 15:08:15,215 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 15:08:15,235 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 15:08:15,849 market_engine: Cycle completed in 30.0s. Next cycle in 270.0s
+[INFO] 2025-06-19 15:12:45,845 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 15:12:45,845 market_engine: Starting cycle at 2025-06-19 15:12:45
+[INFO] 2025-06-19 15:12:45,845 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 15:12:45,845 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 15:12:45,845 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 15:12:46,874 market_engine: Skinport returned no data
+[INFO] 2025-06-19 15:13:13,595 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 15:13:13,608 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 15:13:14,217 market_engine: Cycle completed in 28.4s. Next cycle in 271.6s
+[INFO] 2025-06-19 15:17:45,845 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 15:17:45,845 market_engine: Starting cycle at 2025-06-19 15:17:45
+[INFO] 2025-06-19 15:17:45,845 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 15:17:45,845 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 15:17:45,845 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 15:17:46,711 market_engine: Skinport returned no data
+[INFO] 2025-06-19 15:18:13,749 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 15:18:13,752 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 15:18:14,431 market_engine: Cycle completed in 28.6s. Next cycle in 271.4s
+[INFO] 2025-06-19 15:22:45,845 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 15:22:45,845 market_engine: Starting cycle at 2025-06-19 15:22:45
+[INFO] 2025-06-19 15:22:45,845 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 15:22:45,846 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 15:22:45,846 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 15:22:46,676 market_engine: Skinport returned no data
+[INFO] 2025-06-19 15:23:14,654 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 15:23:14,663 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 15:23:15,266 market_engine: Cycle completed in 29.4s. Next cycle in 270.6s
+[INFO] 2025-06-19 15:27:45,845 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 15:27:45,846 market_engine: Starting cycle at 2025-06-19 15:27:45
+[INFO] 2025-06-19 15:27:45,846 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 15:27:45,846 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 15:27:45,846 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 15:27:46,980 market_engine: Skinport returned no data
+[INFO] 2025-06-19 15:28:13,666 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 15:28:13,687 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 15:28:14,305 market_engine: Cycle completed in 28.5s. Next cycle in 271.5s
+[INFO] 2025-06-19 15:32:45,846 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 15:32:45,846 market_engine: Starting cycle at 2025-06-19 15:32:45
+[INFO] 2025-06-19 15:32:45,846 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 15:32:45,846 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 15:32:45,846 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 15:32:46,629 market_engine: Skinport returned no data
+[INFO] 2025-06-19 15:33:13,760 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 15:33:13,771 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 15:33:14,395 market_engine: Cycle completed in 28.5s. Next cycle in 271.5s
+[INFO] 2025-06-19 15:37:45,846 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 15:37:45,846 market_engine: Starting cycle at 2025-06-19 15:37:45
+[INFO] 2025-06-19 15:37:45,846 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 15:37:45,846 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 15:37:45,846 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 15:37:46,712 market_engine: Skinport returned no data
+[INFO] 2025-06-19 15:38:11,392 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 15:38:11,407 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 15:38:11,916 market_engine: Cycle completed in 26.1s. Next cycle in 273.9s
+[INFO] 2025-06-19 15:42:45,846 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 15:42:45,846 market_engine: Starting cycle at 2025-06-19 15:42:45
+[INFO] 2025-06-19 15:42:45,846 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 15:42:45,847 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 15:42:45,847 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 15:42:46,678 market_engine: Skinport returned no data
+[INFO] 2025-06-19 15:43:13,196 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 15:43:13,210 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 15:43:13,720 market_engine: Cycle completed in 27.9s. Next cycle in 272.1s
+[INFO] 2025-06-19 15:47:45,846 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 15:47:45,847 market_engine: Starting cycle at 2025-06-19 15:47:45
+[INFO] 2025-06-19 15:47:45,847 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 15:47:45,847 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 15:47:45,847 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 15:47:46,660 market_engine: Skinport returned no data
+[INFO] 2025-06-19 15:48:11,201 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 15:48:11,215 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 15:48:11,714 market_engine: Cycle completed in 25.9s. Next cycle in 274.1s
+[INFO] 2025-06-19 15:52:45,847 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 15:52:45,847 market_engine: Starting cycle at 2025-06-19 15:52:45
+[INFO] 2025-06-19 15:52:45,847 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 15:52:45,847 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 15:52:45,847 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 15:52:46,736 market_engine: Skinport returned no data
+[INFO] 2025-06-19 15:53:12,079 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 15:53:12,100 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 15:53:12,629 market_engine: Cycle completed in 26.8s. Next cycle in 273.2s
+[INFO] 2025-06-19 15:57:45,847 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-19 15:57:45,847 market_engine: Starting cycle at 2025-06-19 15:57:45
+[INFO] 2025-06-19 15:57:45,850 market_engine: Starting new analysis cycle
+[INFO] 2025-06-19 15:57:45,850 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-19 15:57:45,850 market_engine: Starting LisSkins data fetch...
+[ERROR] 2025-06-19 15:57:46,669 market_engine: Skinport returned no data
+[INFO] 2025-06-19 15:58:11,349 market_engine: LisSkins fetch successful (4 items)
+[ERROR] 2025-06-19 15:58:11,374 market_engine: Market fetch completed with errors: {'Skinport': 'Skinport returned None'}
+[INFO] 2025-06-19 15:58:11,884 market_engine: Cycle completed in 26.0s. Next cycle in 274.0s
+[INFO] 2025-06-20 03:02:37,336 market_engine: MarketEngine initialized
+[INFO] 2025-06-20 03:02:39,416 market_engine: Starting market engine. Cycle interval: 300s
+[INFO] 2025-06-20 03:02:39,416 market_engine: ------------------------------------------------------------
+[INFO] 2025-06-20 03:02:39,416 market_engine: Starting cycle at 2025-06-20 03:02:39
+[INFO] 2025-06-20 03:02:39,416 market_engine: Starting new analysis cycle
+[INFO] 2025-06-20 03:02:39,417 market_engine: Starting Skinport data fetch...
+[INFO] 2025-06-20 03:02:39,417 market_engine: Starting LisSkins data fetch...
+[INFO] 2025-06-20 03:02:40,713 market_engine: Skinport fetch successful (25230 items)
+[INFO] 2025-06-20 03:03:02,475 market_engine: LisSkins fetch successful (4 items)
+[INFO] 2025-06-20 03:03:02,487 market_engine: Merging market data...
+[INFO] 2025-06-20 03:03:04,455 market_engine: Merged data shape: (25682, 9)
+[INFO] 2025-06-20 03:03:04,455 market_engine: Analyzing opportunities...
+[INFO] 2025-06-20 03:03:04,463 market_engine: Found 172 opportunities
+[INFO] 2025-06-20 03:03:04,463 market_engine: Generating report at data/html_report/market_opportunities.html
+[INFO] 2025-06-20 03:03:04,485 market_engine: Report generated: file:///home/danbar/Desktop/skins-trading-bot/data/html_report/market_opportunities.html
+[INFO] 2025-06-20 03:03:04,942 market_engine: Cycle completed in 25.5s. Next cycle in 274.5s
+[INFO] 2025-06-20 03:08:45,970 market_engine: MarketEngine initialized
+[INFO] 2025-06-20 03:11:34,414 market_engine: MarketEngine initialized

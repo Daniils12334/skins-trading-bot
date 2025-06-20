@@ -2,8 +2,8 @@ ID,Product,Buy Price,Quantity,Buy Time,Analysis Time,Sell Price,Sell Time,Profit
 2,Disco MAC (Charm),0.86,1,2025-06-04 20:51:27,2025-06-04 20:51:27,1.05,2025-06-14 00:00:00,22.09302325581396,Completed
 3,P250 Franklin (FN),1.53,1,2025-06-04 20:52:50,2025-06-04 20:52:50,1.63,2025-06-13 10:48:05,6.535947712418292,Completed
 4,G3SG1 Green Apple(FN),0.24,1,2025-06-04 20:53:27,2025-06-04 20:53:27,,,,Active
-5,Name Tag,1.18,1,2025-06-04 20:54:02,2025-06-04 20:54:02,,,,Active
-7,StatTrak™ MAC-10 | Saibā Oni (Battle-Scarred) ,1.11,1,2025-06-04 20:58:17,2025-06-04 20:58:17,,,,Active
+5,Name Tag,1.18,1,2025-06-04 00:00:00,2025-06-04 00:00:00,1.32,2025-06-15 00:00:00,11.864406779661028,Completed
+7,StatTrak™ MAC-10 | Saibā Oni (Battle-Scarred) ,1.11,1,2025-06-04 00:00:00,2025-06-04 00:00:00,1.31,2025-06-19 00:00:00,18.01801801801801,Completed
 8,StatTrak™ MAC-10 | Saibā Oni (Battle-Scarred) ,1.11,1,2025-06-04 20:58:27,2025-06-04 20:58:27,,,,Active
 9,StatTrak™ MAC-10 | Saibā Oni (Battle-Scarred) ,1.11,1,2025-06-04 20:58:33,2025-06-04 20:58:33,,,,Active
 10,StatTrak™ MAC-10 | Saibā Oni (Battle-Scarred) ,1.11,1,2025-06-04 20:58:41,2025-06-04 20:58:41,,,,Active
@@ -13,10 +13,20 @@ ID,Product,Buy Price,Quantity,Buy Time,Analysis Time,Sell Price,Sell Time,Profit
 14,Five-SeveN Mokey Business (FT),2.3,1,2025-06-05 00:47:19,2025-06-05 00:47:19,2.79,2025-06-11 12:17:03,21.304347826086968,Completed
 15,ST Serpent Strike Desert Deagle (MW),2.67,1,2025-06-06 00:00:00,2025-06-06 00:00:00,2.89,2025-06-15 00:00:00,8.239700374531843,Completed
 16,StatTrak™ MP7 | Bloodsport (Minimal Wear),7.66,1,2025-06-05 01:10:56,2025-06-05 01:10:56,,,,Active
-17,MAC-10 | Derailment (FT),2.69,1,2025-06-06 15:21:49,2025-06-06 15:21:49,,,,Active
+17,MAC-10 | Derailment (FT),2.69,1,2025-06-06 00:00:00,2025-06-06 00:00:00,3.42,2025-06-15 00:00:00,27.137546468401485,Completed
 18,P250 | Franklin (MW),0.83,1,2025-06-06 15:22:19,2025-06-06 15:22:19,,,,Active
-19,Dual Berettas | Melondrama (FT),1.16,1,2025-06-06 15:22:44,2025-06-06 15:22:44,,,,Active
+19,Dual Berettas | Melondrama (FT),1.16,1,2025-06-06 00:00:00,2025-06-06 00:00:00,1.28,2025-06-16 00:00:00,10.344827586206906,Completed
 20,Glock-18 | Moonrise (MW) ,0.73,1,2025-06-06 15:23:19,2025-06-06 15:23:19,,,,Active
 21,MP9 | Food Chain (FT),1.83,1,2025-06-06 15:23:53,2025-06-06 15:23:53,,,,Active
 22,XM1014 | XOXO (FT),1.32,1,2025-06-06 15:24:11,2025-06-06 15:24:11,,,,Active
 23,FAMAS | Bad Trip (FT),1.94,1,2025-06-06 15:25:48,2025-06-06 15:25:48,,,,Active
+24,Mac-10 | Echoing Sands,0.08,1,2025-06-06 00:00:00,2025-06-06 00:00:00,0.12,2025-06-16 00:00:00,49.99999999999999,Completed
+25,Mac-10 | Echoing Sands,0.08,1,2025-06-06 00:00:00,2025-06-06 00:00:00,0.12,2025-06-16 00:00:00,49.99999999999999,Completed
+26,"
+StatTrak™ Desert Eagle | Oxide Blaze (Factory New)",1.95,1,2025-06-17 12:01:07,2025-06-17 12:01:07,,,,Active
+27,"
+StatTrak™ Desert Eagle | Oxide Blaze (Factory New)",1.95,1,2025-06-17 12:02:21,2025-06-17 12:02:21,,,,Active
+28,StatTrak™ P250 | Nevermore (Field-Tested) ,1.19,1,2025-06-17 12:02:31,2025-06-17 12:02:31,,,,Active
+29, StatTrak™ MP9 | Ruby Poison Dart (Factory New) ,5.81,1,2025-06-17 12:04:39,2025-06-17 12:04:39,,,,Active
+30,Sticker | ZywOo (Glitter) | Copenhagen 2024 ,0.21,1,2025-06-17 12:58:37,2025-06-17 12:58:37,,,,Active
+31,Dreams & Nightmares Case,0.01,1,2025-06-18 21:06:42,2025-06-18 21:06:42,,,,Active

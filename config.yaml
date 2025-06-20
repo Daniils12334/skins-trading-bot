@@ -1,6 +1,6 @@
 engine:
-  cycle_interval: 220  # 10 minutes
-  fetch_timeout: 90    # 1.5 min per market
+  cycle_interval: 260  
+  fetch_timeout: 220    
   auto_open: true
 
 data:
@@ -21,12 +21,12 @@ skinport:
 
 strategy:
   min_profit_pct: 20
-  min_quantity: 100
-  max_profit_pct: 200
+  min_quantity: 20
+  max_profit_pct: 400
 
 risk:
-  max_investment_per_item: 15
-  max_total_investment: 50
+  max_investment_per_item: 50
+  max_total_investment: 510
   max_items_per_day: 200
 
 html_reports:
