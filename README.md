@@ -169,31 +169,31 @@ Data columns:
 
 ## Key Visualization Features
 
--    **Side-by-Side Market Comparison**
+### **Side-by-Side Market Comparison**
 
 - Clear presentation of prices from both markets
 
 - Highlighting of key differentiators (float value, stickers)
 
-    **Arbitrage Opportunity Calculator**
+### **Arbitrage Opportunity Calculator**
 
 - Instant visibility of profit potential
 
 - Color-coded based on opportunity size
 
-    **Historical Price Charts**
+### **Historical Price Charts**
 
 - Interactive time-series graphs
 
 - Support for multiple price metrics (min, max, median)
 
-    **Condition Indicators**
+### **Condition Indicators**
 
 - Visual representation of wear quality
 
 - Sticker impact visualization
 
-    **Mobile-Responsive Design**
+### **Mobile-Responsive Design**
 
 - Adapts to different screen sizes
 
