@@ -2,12 +2,10 @@
 ## Overview
 
 ### This trading bot analyzes and trades CS:GO skins across multiple marketplaces, featuring both a powerful backend engine and a user-friendly PyQt-based UI with advanced visualization capabilities.
-
-![App Screenshot](stock/app_showcase.png)
 Main dashboard with market overview
-
+![App Screenshot](stock/app_showcase.png)
+Add Sale Function
 ![App Screenshot](stock/app_showcase1.png)
-Add Trade Function
 
 # Key Features
 ## Core Functionality
@@ -22,27 +20,27 @@ Add Trade Function
 
 -    **Interactive dashboards with PyQt charts showing:**
 
--       Profit trends over time
+- Profit trends over time
 
--       Market price comparisons
+- Market price comparisons
 
--       Portfolio performance
+- Portfolio performance
 
 -    **Trade management interface:**
 
--       Manual trade entry and editing
+- Manual trade entry and editing
 
--       Status tracking (Active/Completed)
+- Status tracking (Active/Completed)
 
--       Profit/loss calculations
+- Profit/loss calculations
 
 -    **Data visualization:**
 
--       Interactive price history graphs
+- Interactive price history graphs
 
--       Market spread heatmaps
+- Market spread heatmaps
 
--       Performance metrics
+- Performance metrics
 
 # Trading Journal & Analysis
 
@@ -239,33 +237,33 @@ Here's an HTML report structure showing our price analysis:
 
 -    **Side-by-Side Market Comparison**
 
--        Clear presentation of prices from both markets
+- Clear presentation of prices from both markets
 
--        Highlighting of key differentiators (float value, stickers)
+- Highlighting of key differentiators (float value, stickers)
 
     **Arbitrage Opportunity Calculator**
 
--        Instant visibility of profit potential
+- Instant visibility of profit potential
 
--        Color-coded based on opportunity size
+- Color-coded based on opportunity size
 
     **Historical Price Charts**
 
--        Interactive time-series graphs
+- Interactive time-series graphs
 
--        Support for multiple price metrics (min, max, median)
+- Support for multiple price metrics (min, max, median)
 
     **Condition Indicators**
 
--        Visual representation of wear quality
+- Visual representation of wear quality
 
--        Sticker impact visualization
+- Sticker impact visualization
 
     **Mobile-Responsive Design**
 
--        Adapts to different screen sizes
+- Adapts to different screen sizes
 
--        Touch-friendly interactive elements
+- Touch-friendly interactive elements
 
 ## The HTML reports are generated automatically after each market scan, providing traders with up-to-date visual analysis of market conditions and trading opportunities.
 
