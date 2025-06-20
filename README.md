@@ -1,6 +1,15 @@
 # Skins Trading Bot - Enhanced README
-## Overview
 
+### Important Disclaimer
+
+This software is provided for educational purposes only. The developers assume no responsibility for:
+- Any financial losses incurred through use of this bot
+- Violations of marketplace Terms of Service
+- Account bans or trade restrictions imposed by any platform
+- Any legal consequences of automated trading
+
+Users are solely responsible for ensuring their compliance with all platform rules and applicable laws. Virtual item trading carries inherent risks.
+## Overview
 ### This trading bot analyzes and trades CS:GO skins across multiple marketplaces, featuring both a powerful backend engine and a user-friendly PyQt-based UI with advanced visualization capabilities.
 Main dashboard with market overview
 ![App Screenshot](stock/app_showcase.png)
@@ -10,15 +19,15 @@ Add Sale Function
 # Key Features
 ## Core Functionality
 
-    Multi-market data collection from Skinport, LIS Skins, and more (additional markets in development)
+- Multi-market data collection from Skinport, LIS Skins, and more (additional markets in development)
 
-    Real-time arbitrage opportunity detection
+- Real-time arbitrage opportunity detection
 
-    Historical price tracking and analysis
+- Historical price tracking and analysis
 
 ## Advanced UI Features
 
--    **Interactive dashboards with PyQt charts showing:**
+**Interactive dashboards with PyQt charts showing:**
 
 - Profit trends over time
 
@@ -26,7 +35,7 @@ Add Sale Function
 
 - Portfolio performance
 
--    **Trade management interface:**
+**Trade management interface:**
 
 - Manual trade entry and editing
 
@@ -34,7 +43,7 @@ Add Sale Function
 
 - Profit/loss calculations
 
--    **Data visualization:**
+**Data visualization:**
 
 - Interactive price history graphs
 
@@ -279,5 +288,5 @@ Here's an HTML report structure showing our price analysis:
 
 For issues or feature requests, please open an issue on our GitHub repository.
 
-Note: This bot is for educational purposes only. Trading virtual items carries risks, and past performance is not indicative of future results.
+# Note: This bot is for educational purposes only. Trading virtual items carries risks, and past performance is not indicative of future results.
 
