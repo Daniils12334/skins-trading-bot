@@ -3,11 +3,12 @@
 
 ### This trading bot analyzes and trades CS:GO skins across multiple marketplaces, featuring both a powerful backend engine and a user-friendly PyQt-based UI with advanced visualization capabilities.
 
-https:///home/danbar/Desktop/skins-trading-bot/stock/app_showcase1.png
+![App Screenshot](stock/app_showcase.png)
 Main dashboard with market overview
 
-https:///home/danbar/Desktop/skins-trading-bot/stock/app_showcase.png
-Detailed trade analysis and statistics
+![App Screenshot](stock/app_showcase1.png)
+Add Trade Function
+
 # Key Features
 ## Core Functionality
 
@@ -21,27 +22,27 @@ Detailed trade analysis and statistics
 
 -    **Interactive dashboards with PyQt charts showing:**
 
-    -   Profit trends over time
+-       Profit trends over time
 
-    -   Market price comparisons
+-       Market price comparisons
 
-    -   Portfolio performance
+-       Portfolio performance
 
 -    **Trade management interface:**
 
-    -   Manual trade entry and editing
+-       Manual trade entry and editing
 
-    -   Status tracking (Active/Completed)
+-       Status tracking (Active/Completed)
 
-    -   Profit/loss calculations
+-       Profit/loss calculations
 
 -    **Data visualization:**
 
-    -   Interactive price history graphs
+-       Interactive price history graphs
 
-    -   Market spread heatmaps
+-       Market spread heatmaps
 
-    -   Performance metrics
+-       Performance metrics
 
 # Trading Journal & Analysis
 
@@ -98,6 +99,7 @@ python main.py
 
 # This section explains how item prices are determined across different markets and how we visualize this data in our HTML reports.
 ---
+![App Screenshot](stock/skinport.png)
 ## Skinport Market Pricing
 ```json
 
@@ -119,6 +121,7 @@ python main.py
 
 -    **Quantity:** Available items affecting liquidity
 ---
+![App Screenshot](stock/lis_skins.png)
 ## LIS Skins Pricing
 ```json
 
@@ -154,84 +157,84 @@ Data columns:
 
 # HTML Visualization
 
-Here's a HTML report structure showing our price analysis:
-```html
-    <html>
-    <head>
-        <title>Market Opportunities Report</title>
-        <style>
-            body { font-family: Arial, sans-serif; margin: 20px; }
-            h1 { color: #333; }
-            table { border-collapse: collapse; width: 100%; }
-            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-            th { background-color: #f2f2f2; }
-            tr:nth-child(even) { background-color: #f9f9f9; }
-            .positive { color: green; }
-            .negative { color: red; }
-        </style>
-    </head>
-    <body>
-        <h1>Market Opportunities Report</h1>
-        <p>Generated on 2025-06-20 03:03:04</p>
-        
-        <h2>Strategy Parameters</h2>
-        <ul>
-            <li>Minimum Profit: 20%</li>
-            <li>Maximum Profit: 400%</li>
-            <li>Minimum Quantity: 20</li>
-        </ul>
-        
-        <h2>Risk Management</h2>
-        <ul>
-            <li>Max Investment Per Item: €50</li>
-            <li>Max Total Investment: €510</li>
-            <li>Max Items Per Day: 200</li>
-        </ul>
-        
-        <h2>Recommended Opportunities (172)</h2>
-        <table border="1" class="dataframe opportunity-table">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Item Name</th>
-      <th>Buy Price (LS)</th>
-      <th>Sell Price (SP)</th>
-      <th>Potential Profit</th>
-      <th>Profit %</th>
-      <th>Available Qty</th>
-      <th>Recommended Investment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>G3SG1 | Orange Crash (Field-Tested)</td>
-      <td>€0.12</td>
-      <td>€0.22</td>
-      <td>€0.07</td>
-      <td>61.3%</td>
-      <td>24.0</td>
-      <td>€0.12</td>
-    </tr>
-    <tr>
-      <td>Austin 2025 Contenders Autograph Capsule</td>
-      <td>€0.73</td>
-      <td>€1.24</td>
-      <td>€0.36</td>
-      <td>49.5%</td>
-      <td>310.0</td>
-      <td>€0.73</td>
-    </tr>
-  </tbody>
-</table>
-        
-        <h3>Summary</h3>
-        <ul>
-            <li>Total Potential Profit: €22.08</li>
-            <li>Total Investment: €81.94</li>
-            <li>ROI: 26.9%</li>
-        </ul>
-    </body>
-    </html>
-```
+Here's an HTML report structure showing our price analysis:
+
+<html>
+<head>
+    <title>Market Opportunities Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .positive { color: green; }
+        .negative { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Market Opportunities Report</h1>
+    <p>Generated on 2025-06-20 03:03:04</p>
+    
+    <h2>Strategy Parameters</h2>
+    <ul>
+        <li>Minimum Profit: 20%</li>
+        <li>Maximum Profit: 400%</li>
+        <li>Minimum Quantity: 20</li>
+    </ul>
+    
+    <h2>Risk Management</h2>
+    <ul>
+        <li>Max Investment Per Item: €50</li>
+        <li>Max Total Investment: €510</li>
+        <li>Max Items Per Day: 200</li>
+    </ul>
+    
+    <h2>Recommended Opportunities (172)</h2>
+    <table border="1" class="dataframe opportunity-table">
+        <thead>
+            <tr style="text-align: right;">
+                <th>Item Name</th>
+                <th>Buy Price (LS)</th>
+                <th>Sell Price (SP)</th>
+                <th>Potential Profit</th>
+                <th>Profit %</th>
+                <th>Available Qty</th>
+                <th>Recommended Investment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>G3SG1 | Orange Crash (Field-Tested)</td>
+                <td>€0.12</td>
+                <td>€0.22</td>
+                <td>€0.07</td>
+                <td>61.3%</td>
+                <td>24.0</td>
+                <td>€0.12</td>
+            </tr>
+            <tr>
+                <td>Austin 2025 Contenders Autograph Capsule</td>
+                <td>€0.73</td>
+                <td>€1.24</td>
+                <td>€0.36</td>
+                <td>49.5%</td>
+                <td>310.0</td>
+                <td>€0.73</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>Summary</h3>
+    <ul>
+        <li>Total Potential Profit: €22.08</li>
+        <li>Total Investment: €81.94</li>
+        <li>ROI: 26.9%</li>
+    </ul>
+</body>
+</html>
+
 ## Key Visualization Features
 
 -    **Side-by-Side Market Comparison**
